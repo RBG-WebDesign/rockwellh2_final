@@ -2920,23 +2920,25 @@ input[type='range']::-moz-range-thumb {
   color: #fff;
 }
 
-/* Section rules and eyebrows on dark — scoped to dark-canvas sections only */
-.industries-list-section .section-eyebrow,
+/* Section eyebrow on dark-canvas modular section */
 .modular-section .section-eyebrow {
   color: var(--color-accent) !important;
   border-bottom: none;
 }
 
-/* Section headings: white on dark-canvas sections */
-.industries-list-section .section-heading,
+/* Section heading/sub white only on the dark modular section */
 .modular-section .section-heading {
   color: #fff !important;
 }
 
-/* Section sub text: readable on dark-canvas sections */
-.industries-list-section .section-sub,
 .modular-section .section-sub {
   color: rgba(255,255,255,0.65) !important;
+}
+
+/* Industries section eyebrow — accent on light background */
+.industries-list-section .section-eyebrow {
+  color: var(--color-primary);
+  border-bottom: none;
 }
 
 /* ---- PATHWAYS — use default light colors ---- */
@@ -3467,7 +3469,7 @@ input[type='range']::-moz-range-thumb {
 }
 
 .industry-row:hover .industry-row-name {
-  color: #fff !important;
+  color: var(--color-primary) !important;
 }
 
 /* --- CTA BANNER — deep background + H₂ watermark --- */
