@@ -4193,7 +4193,16 @@ input[type='range']::-moz-range-thumb {
 
   /* --- FOOTER --- */
   .site-footer { padding: 32px 20px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  /* Brand block spans full width so Solutions/Industries/Contact align cleanly in 2-col below */
+  .footer-grid > div:first-child {
+    grid-column: 1 / -1;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
   .footer-col-title { font-size: 0.75rem; }
   .footer-links li { margin-bottom: 6px; }
   .footer-links a { font-size: 0.8rem; }
