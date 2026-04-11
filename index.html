@@ -62,7 +62,7 @@
       <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       </button>
-      <a href="./contact.html" class="btn btn-primary">Talk to Our Team</a>
+      <button class="btn btn-primary" data-open-modal="contact-modal">Talk to Our Team</button>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -90,7 +90,7 @@
   <a href="./calculator.html">H₂ Calculator</a>
   <a href="./contact.html">Contact</a>
   <div style="margin-top: auto; padding-top: 2rem; display: flex; justify-content: center;">
-    <a href="./contact.html" class="btn btn-primary btn-lg" style="width: 80%; justify-content:center; text-align: center;">Talk to Our Team</a>
+    <button class="btn btn-primary btn-lg" style="width: 80%; justify-content:center; text-align: center;" data-open-modal="contact-modal">Talk to Our Team</button>
   </div>
 </div>
 
@@ -111,7 +111,7 @@
         <p class="hero-sub">Complete on-site hydrogen systems powered by solar or biomass. Produce, store, and use your own clean energy on your property. No grid required. Built on 30+ years of experience delivering reliable energy systems.</p>
         <div class="hero-actions">
           <a href="#how-it-works" class="btn btn-primary btn-lg">See How It Works</a>
-          <a href="./contact.html" class="btn btn-white btn-lg">Talk to Our Team</a>
+          <button class="btn btn-white btn-lg" data-open-modal="contact-modal">Talk to Our Team</button>
         </div>
         <div class="hero-trust-row">
           <span class="hero-trust-item">
@@ -790,13 +790,61 @@
         <h2>See if hydrogen makes sense for your operation.</h2>
         <p>We'll walk you through what a system would look like, what it produces, and what it costs. Straight answers, no sales pitch.</p>
         <div class="cta-banner-actions">
-          <a href="./contact.html" class="btn btn-primary btn-lg">Contact Us</a>
+          <button class="btn btn-primary btn-lg" data-open-modal="contact-modal">Talk to Our Team</button>
           <a href="./calculator.html" class="btn btn-outline-white btn-lg">Try the H₂ Calculator</a>
         </div>
       </div>
     </div>
   </section>
 </main>
+
+<!-- QUICK CONTACT MODAL -->
+<div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+  <div class="modal-card">
+    <button class="modal-close" data-close-modal aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-header">
+      <p class="modal-eyebrow">Quick Contact</p>
+      <h2 class="modal-title" id="modal-title">Talk to Brad or Nick directly.</h2>
+      <p class="modal-sub">Drop your info and we'll call you back within one business day. No sales team, no runaround.</p>
+    </div>
+    <form id="modal-form" class="modal-form" novalidate>
+      <div class="modal-form-row">
+        <div class="modal-field">
+          <label class="modal-label" for="m-name">Name <span aria-hidden="true">*</span></label>
+          <input class="modal-input" type="text" id="m-name" name="name" placeholder="Your name" autocomplete="name" required />
+        </div>
+        <div class="modal-field">
+          <label class="modal-label" for="m-company">Company</label>
+          <input class="modal-input" type="text" id="m-company" name="company" placeholder="Your company" autocomplete="organization" />
+        </div>
+      </div>
+      <div class="modal-form-row">
+        <div class="modal-field">
+          <label class="modal-label" for="m-email">Email <span aria-hidden="true">*</span></label>
+          <input class="modal-input" type="email" id="m-email" name="email" placeholder="you@company.com" autocomplete="email" required />
+        </div>
+        <div class="modal-field">
+          <label class="modal-label" for="m-phone">Phone</label>
+          <input class="modal-input" type="tel" id="m-phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel" />
+        </div>
+      </div>
+      <div class="modal-field">
+        <label class="modal-label" for="m-message">What are you working on? <span aria-hidden="true">*</span></label>
+        <textarea class="modal-textarea" id="m-message" name="message" rows="3" placeholder="Describe your facility, energy needs, or questions…" required></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary btn-lg modal-submit">Send Message →</button>
+        <a href="./contact.html" class="modal-full-form-link">Need the full form? →</a>
+      </div>
+      <div id="modal-success" class="modal-success" hidden>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#39d353" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <p>Message sent! We'll be in touch within one business day.</p>
+      </div>
+    </form>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer class="site-footer">
@@ -910,6 +958,45 @@ document.querySelectorAll('.nav-dropdown').forEach(dd => {
   dd.addEventListener('mouseenter', () => dd.classList.add('open'));
   dd.addEventListener('mouseleave', () => dd.classList.remove('open'));
 });
+
+// Quick contact modal
+(function() {
+  const overlay = document.getElementById('contact-modal');
+  if (!overlay) return;
+
+  function openModal() {
+    overlay.hidden = false;
+    requestAnimationFrame(() => overlay.classList.add('modal-open'));
+    document.body.style.overflow = 'hidden';
+    overlay.querySelector('.modal-close').focus();
+  }
+  function closeModal() {
+    overlay.classList.remove('modal-open');
+    document.body.style.overflow = '';
+    setTimeout(() => { overlay.hidden = true; }, 200);
+  }
+
+  document.querySelectorAll('[data-open-modal="contact-modal"]').forEach(btn => {
+    btn.addEventListener('click', openModal);
+  });
+  overlay.querySelectorAll('[data-close-modal]').forEach(btn => {
+    btn.addEventListener('click', closeModal);
+  });
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !overlay.hidden) closeModal(); });
+
+  // Form submit (no backend — shows success state)
+  document.getElementById('modal-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.modal-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    setTimeout(() => {
+      this.querySelectorAll('.modal-form-row, .modal-field, .modal-actions').forEach(el => el.style.display = 'none');
+      document.getElementById('modal-success').hidden = false;
+    }, 800);
+  });
+})();
 
 // Container chain staggered entrance animation
 (function() {
