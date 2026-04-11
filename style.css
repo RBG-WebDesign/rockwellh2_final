@@ -4058,6 +4058,12 @@ body {
     grid-template-columns: 1fr !important;
   }
 
+  /* --- INNER PAGE 2-COL GRIDS --- */
+  .inner-two-col {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
   /* --- SECTION DIVIDERS --- */
   .section-divider { display: none; }
 
