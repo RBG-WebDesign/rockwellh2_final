@@ -2266,27 +2266,28 @@ input[type='range']::-moz-range-thumb {
   display: flex;
   flex-direction: column;
   gap: 0;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
 }
 
 .pathway-flow-step {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
-  padding: var(--space-4) 0;
-  border-top: 1px solid var(--color-border);
+  padding: var(--space-5) 0;
+  border-top: none;
 }
 
 .pathway-flow-step--product {
   background: var(--color-surface-2);
-  padding: var(--space-4) var(--space-4);
+  padding: var(--space-5) var(--space-5);
   border-left: 2px solid var(--color-accent);
   border-top: none;
-  margin: 0;
+  border-radius: var(--radius-sm);
+  margin: var(--space-1) 0;
 }
 
 .pathway-flow-step--shared {
-  opacity: 0.65;
+  opacity: 0.85;
 }
 
 .flow-step-label {
@@ -2310,29 +2311,32 @@ input[type='range']::-moz-range-thumb {
 }
 
 .pathway-flow-arrow {
-  font-size: 1rem;
-  color: var(--color-border);
-  padding: var(--space-1) 0;
-  line-height: 1;
+  font-size: 0;
+  color: transparent;
+  padding: 0;
+  min-height: 0;
+  line-height: 0;
+  display: none;
 }
 
 .pathway-best-for {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
-  padding: var(--space-4) 0;
+  padding: var(--space-5) 0;
   border-top: 1px solid var(--color-border);
   margin-bottom: var(--space-4);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .pathway-best-for-label {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
+  font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-muted);
-  margin-right: var(--space-2);
+  margin-right: var(--space-3);
 }
 
 .pathway-link {
@@ -2348,15 +2352,15 @@ input[type='range']::-moz-range-thumb {
 .pathway-download {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   margin-top: var(--space-3);
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-text-muted);
   text-decoration: none;
-  transition: color 0.15s;
+  transition: color 0.15s, gap 0.15s;
 }
-.pathway-download:hover { color: var(--color-accent); }
+.pathway-download:hover { color: var(--color-accent); gap: 8px; }
 
 
 /* ============================================================
@@ -2391,10 +2395,8 @@ input[type='range']::-moz-range-thumb {
   display: flex;
   align-items: center;
   gap: 0;
-  overflow-x: auto;
+  overflow-x: visible;
   padding-bottom: var(--space-4);
-  scrollbar-width: thin;
-  scrollbar-color: rgba(57,211,83,0.3) transparent;
 }
 
 .container-unit {
@@ -2402,11 +2404,13 @@ input[type='range']::-moz-range-thumb {
   flex-direction: column;
   align-items: center;
   gap: var(--space-3);
-  flex-shrink: 0;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .container-box {
-  width: 280px;
+  width: 100%;
+  max-width: 260px;
 }
 
 .container-iso {
@@ -2416,8 +2420,7 @@ input[type='range']::-moz-range-thumb {
 }
 
 .chain-connector {
-  flex-shrink: 0;
-  width: 48px;
+  flex: 0 0 36px;
   display: flex;
   align-items: center;
 }
@@ -3376,29 +3379,18 @@ input[type='range']::-moz-range-thumb {
 /* --- PATHWAY SECTION — light background --- */
 /* Removed dark background override to show intended light bg */
 
-/* Replace "↓" text arrows with visual gradient lines */
+/* Flow arrows hidden — spacing between steps provides visual flow */
 .pathway-flow-arrow {
-  font-size: 0 !important;
-  color: transparent !important;
-  padding: 0 !important;
-  min-height: 24px;
-  display: flex !important;
-  align-items: center;
+  display: none !important;
 }
 
 .pathway-flow-arrow::after {
-  content: '';
-  display: block;
-  width: 1.5px;
-  height: 22px;
-  background: linear-gradient(to bottom, rgba(57, 211, 83, 0.55), rgba(57, 211, 83, 0.08));
-  border-radius: 1px;
-  margin-left: 3px;
+  display: none;
 }
 
 /* Product step card subtle glow */
 .pathway-flow-step--product {
-  box-shadow: 0 0 24px rgba(57, 211, 83, 0.06);
+  box-shadow: 0 0 20px rgba(57, 211, 83, 0.05);
 }
 
 /* --- ISO CONTAINER SECTION --- */
