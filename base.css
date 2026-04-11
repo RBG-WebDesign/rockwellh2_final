@@ -109,4 +109,4 @@ a, button, [role='button'], [role='link'], input, textarea, select {
    VISIBILITY UTILITIES
    ============================================================ */
 .mobile-only  { display: none !important; }
-.desktop-only { display: block !important; }
+/* .desktop-only — visible by default, hidden only inside @media (max-width: 900px) */

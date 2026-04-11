@@ -3654,7 +3654,7 @@ body {
 @media (max-width: 900px) {
 
   /* --- UTILITIES --- */
-  .mobile-only  { display: block !important; }
+  .mobile-only  { display: block; }
   .desktop-only { display: none !important; }
 
   /* --- GLOBAL --- */
