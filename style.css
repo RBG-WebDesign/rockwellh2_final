@@ -2344,6 +2344,19 @@ input[type='range']::-moz-range-thumb {
 }
 .pathway-link:hover { opacity: 0.7; }
 
+.pathway-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.pathway-download:hover { color: var(--color-accent); }
+
 
 /* ============================================================
    ISO CONTAINER MODULARITY SECTION
