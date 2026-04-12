@@ -3845,54 +3845,64 @@ input[type='range']::-moz-range-thumb {
   }
 
   .hero {
-    min-height: 100svh;
-    align-items: center !important;
+    height: 100svh;
+    min-height: 0;
+    align-items: stretch !important;
   }
 
   .hero-content {
-    padding: clamp(64px, 12vh, 140px) 20px var(--space-4) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding: 72px 20px var(--space-8) !important;
     width: 100% !important;
     max-width: 680px !important;
     margin-inline: 0 auto !important;
+    height: 100%;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
   .hero-left h1 {
-    font-size: clamp(2.4rem, 10vw, 4.5rem);
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
     line-height: 1.05;
     letter-spacing: -0.03em;
     max-width: none;
-    margin-bottom: clamp(12px, 3vh, 24px) !important;
+    margin-bottom: clamp(8px, 2vh, 16px) !important;
   }
 
   .hero-sub {
-    font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+    font-size: clamp(0.9rem, 2.2vw, 1.1rem);
     max-width: 100%;
-    margin-bottom: clamp(16px, 4vh, 36px);
+    margin-bottom: clamp(12px, 3vh, 24px);
     color: rgba(255, 255, 255, 0.85);
-    line-height: 1.5;
+    line-height: 1.45;
   }
 
   .hero-actions {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     align-items: stretch;
-    gap: clamp(10px, 2vw, 20px);
-    margin-bottom: clamp(20px, 4vh, 40px);
+    gap: 10px;
+    margin-bottom: clamp(12px, 2.5vh, 20px);
   }
 
   .hero-actions .btn {
     text-align: center;
     justify-content: center;
-    padding: clamp(14px, 2vh, 20px) 24px;
-    font-size: clamp(1rem, 2vw, 1.15rem);
+    padding: 14px 24px;
+    font-size: 1rem;
     border-radius: var(--radius-full);
-    flex: 1 1 240px;
+    width: 100%;
   }
 
   .hero-trust-row {
-    gap: 8px 16px;
-    margin-bottom: clamp(20px, 4vh, 40px);
+    gap: 6px 14px;
+    margin-bottom: 0;
   }
 
   .hero-trust-sep {
@@ -3900,50 +3910,13 @@ input[type='range']::-moz-range-thumb {
   }
 
   .hero-trust-item {
-    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+    font-size: clamp(0.7rem, 1.5vw, 0.82rem);
     color: rgba(255, 255, 255, 0.7);
   }
 
-  /* Premium 2×2 stat grid for mobile */
+  /* Hide stats grid on mobile — trust row covers key points */
   .hero-stats {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(10px, 2vw, 16px);
-    flex-wrap: unset;
-    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-    padding-top: clamp(16px, 4vh, 40px);
-    margin-top: 0;
-  }
-
-  .hero-stats>div {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 12px;
-    padding: clamp(14px, 2.5vh, 20px) clamp(12px, 2.5vw, 20px);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    white-space: normal;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-
-  .hero-stat-value {
-    font-size: clamp(1.4rem, 4vw, 2rem);
-    font-weight: 800;
-    color: var(--color-accent);
-    margin-bottom: 2px;
-    letter-spacing: -0.02em;
-  }
-
-  .hero-stat-label {
-    font-size: clamp(0.65rem, 1.5vw, 0.8rem);
-    color: rgba(255, 255, 255, 0.65);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-family: var(--font-body);
-    font-weight: 600;
+    display: none !important;
   }
 
   /* --- SECTION BASE --- */
