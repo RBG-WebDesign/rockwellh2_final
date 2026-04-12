@@ -3853,11 +3853,11 @@ input[type='range']::-moz-range-thumb {
   .hero-content {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;
-    padding: 72px 20px var(--space-8) !important;
+    justify-content: flex-end !important;
+    padding: 72px 20px 20px !important;
     width: 100% !important;
-    max-width: 680px !important;
-    margin-inline: 0 auto !important;
+    max-width: none !important;
+    margin-inline: 0 !important;
     height: 100%;
   }
 
@@ -3865,6 +3865,7 @@ input[type='range']::-moz-range-thumb {
     display: flex;
     flex-direction: column;
     gap: 0;
+    padding-inline: 0;
   }
 
   .hero-left h1 {
@@ -3878,7 +3879,7 @@ input[type='range']::-moz-range-thumb {
   .hero-sub {
     font-size: clamp(0.9rem, 2.2vw, 1.1rem);
     max-width: 100%;
-    margin-bottom: clamp(12px, 3vh, 24px);
+    margin-bottom: clamp(12px, 3vh, 20px);
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.45;
   }
@@ -3888,7 +3889,7 @@ input[type='range']::-moz-range-thumb {
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
-    margin-bottom: clamp(12px, 2.5vh, 20px);
+    margin-bottom: clamp(10px, 2vh, 16px);
   }
 
   .hero-actions .btn {
@@ -3914,9 +3915,51 @@ input[type='range']::-moz-range-thumb {
     color: rgba(255, 255, 255, 0.7);
   }
 
-  /* Hide stats grid on mobile — trust row covers key points */
+  /* Compact full-width stat strip on mobile */
   .hero-stats {
-    display: none !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 12px 0 0 !important;
+    margin: 12px -20px 0 !important;
+    width: calc(100% + 40px);
+    border-radius: 0 !important;
+  }
+
+  .hero-stats > div {
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 8px 4px !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-stats > div + div {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-stat-value {
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+    font-weight: 800;
+    color: var(--color-accent);
+    margin-bottom: 1px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-stat-label {
+    font-size: clamp(0.55rem, 1.4vw, 0.7rem);
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-family: var(--font-body);
+    font-weight: 600;
   }
 
   /* --- SECTION BASE --- */
