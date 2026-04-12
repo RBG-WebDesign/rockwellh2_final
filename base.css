@@ -54,18 +54,14 @@ p, li, figcaption {
 }
 
 ::selection {
-  background: #0d1b2e;
-  color: #39d353;
-}
-
-::-moz-selection {
-  background: #0d1b2e;
-  color: #39d353;
+  background: oklch(from var(--color-primary) l c h / 0.25);
+  color: var(--color-text);
 }
 
 :focus-visible {
-  outline: 2px solid #39d353;
-  outline-offset: 2px;
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
 }
 
 @media (prefers-reduced-motion: reduce) {

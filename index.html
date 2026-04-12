@@ -32,6 +32,7 @@
       <li class="nav-dropdown">
         <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
           Solutions
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="nav-dropdown-menu">
           <a href="./solar.html" class="nav-dropdown-item">
@@ -54,15 +55,14 @@
           </a>
         </div>
       </li>
-      <li><a href="./calculator.html">Calculator</a></li>
-      <li><a href="./industries.html">Industries</a></li>
+      <li><a href="./calculator.html">H&#8322; Calculator</a></li>
       <li><a href="./contact.html">Contact</a></li>
     </ul>
     <div class="nav-right">
       <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       </button>
-      <button class="btn btn-primary" data-open-modal="estimate-modal">Get System Estimate</button>
+      <button class="btn btn-primary" data-open-modal="contact-modal">Talk to Our Team</button>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -74,7 +74,7 @@
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
   <div class="mobile-menu-header">
     <a href="./index.html" class="nav-logo">
-      <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none">
         <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#0d1b2e" stroke="#39d353" stroke-width="2"/>
         <text text-anchor="middle" font-family="sans-serif" font-weight="900" fill="#39d353"><tspan x="20" y="23" font-size="14">H</tspan><tspan dy="3" font-size="9">2</tspan></text>
       </svg>
@@ -87,11 +87,10 @@
   <a href="./index.html">Home</a>
   <a href="./solar.html">Solar to Hydrogen</a>
   <a href="./biomass.html">Biomass to Hydrogen</a>
-  <a href="./calculator.html">Calculator</a>
-  <a href="./industries.html">Industries</a>
+  <a href="./calculator.html">H&#8322; Calculator</a>
   <a href="./contact.html">Contact</a>
   <div style="margin-top: auto; padding-top: 2rem; display: flex; justify-content: center;">
-    <button class="btn btn-primary btn-lg" style="width: 80%; justify-content:center; text-align: center;" data-open-modal="estimate-modal">Get System Estimate</button>
+    <button class="btn btn-primary btn-lg" style="width: 80%; justify-content:center; text-align: center;" data-open-modal="contact-modal">Talk to Our Team</button>
   </div>
 </div>
 
@@ -99,20 +98,18 @@
   <!-- HERO -->
   <section class="hero" aria-label="Hero" data-nav-dark>
     <div class="hero-bg">
-      <video class="hero-video" autoplay muted loop playsinline poster="./hydrogen.png">
+      <video class="hero-video" autoplay muted loop playsinline>
         <source src="./hero.mp4" type="video/mp4" />
       </video>
       <div class="hero-bg-overlay"></div>
     </div>
-    <div class="hero-content hero-content--split">
-
-      <!-- LEFT: text -->
+    <div class="hero-content">
       <div class="hero-left">
-        <h1>On-site hydrogen systems for <span class="accent">farms, wineries, and industrial facilities</span></h1>
-        <p class="hero-sub">Produce clean hydrogen directly on your property from solar power or organic waste. Store it, use it on demand — no grid required.</p>
+        <h1>Turn your waste<br>into <span class="accent">clean fuel.</span></h1>
+        <p class="hero-sub">Complete on-site hydrogen systems powered by solar or biomass. Produce, store, and use your own clean energy on your property. No grid required.</p>
         <div class="hero-actions">
-          <button class="btn btn-primary btn-lg" data-open-modal="estimate-modal">Size My System</button>
-          <a href="#how-it-works" class="btn btn-outline-white btn-lg">See How It Works</a>
+          <a href="#how-it-works" class="btn btn-primary btn-lg">See How It Works</a>
+          <button class="btn btn-white btn-lg" data-open-modal="contact-modal">Talk to Our Team</button>
         </div>
         <div class="hero-trust-row">
           <span class="hero-trust-item">
@@ -122,7 +119,7 @@
           <span class="hero-trust-sep"></span>
           <span class="hero-trust-item">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            U.S. designed &amp; engineered
+            30+ years experience
           </span>
           <span class="hero-trust-sep"></span>
           <span class="hero-trust-item">
@@ -130,80 +127,72 @@
             Solar + Biomass pathways
           </span>
         </div>
-
-        <div class="hero-specs desktop-only">
-          <div class="spec-item">
-            <span class="spec-value">350 bar</span>
-            <span class="spec-label">Storage Pressure</span>
+        
+        <div class="hero-stats reveal reveal-delay-2">
+          <div>
+            <span class="hero-stat-value">30+</span>
+            <span class="hero-stat-label">Years Experience</span>
           </div>
-          <div class="spec-item">
-            <span class="spec-value">Up to 90 kg</span>
-            <span class="spec-label">H₂ / Day Production</span>
+          <div>
+            <span class="hero-stat-value">90 kg</span>
+            <span class="hero-stat-label">H&#8322; / Day</span>
           </div>
-          <div class="spec-item">
-            <span class="spec-value">Zero</span>
-            <span class="spec-label">Emissions Output</span>
+          <div>
+            <span class="hero-stat-value">Zero</span>
+            <span class="hero-stat-label">Emissions Output</span>
+          </div>
+          <div>
+            <span class="hero-stat-value">2</span>
+            <span class="hero-stat-label">Pathways</span>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- SYSTEM STATES (How It Works) -->
-  <section class="section states-section bg-surface-2" id="how-it-works">
-    <div class="container container--narrow text-center">
-      <div class="states-machine desktop-only">
-        <!-- continuous line container -->
-        <div class="states-flow-line">
-          <div class="states-flow-progress"></div>
-        </div>
-        
-        <div class="states-nodes">
-          <div class="state-node">
-            <div class="state-dot glow-pulse"></div>
-            <h3 class="state-name">Generation</h3>
-            <p class="state-desc">Convert solar power or organic waste into raw hydrogen energy.</p>
-          </div>
-          <div class="state-node">
-            <div class="state-dot glow-pulse"></div>
-            <h3 class="state-name">Storage</h3>
-            <p class="state-desc">Hold clean hydrogen on-site indefinitely with zero degradation.</p>
-          </div>
-          <div class="state-node">
-            <div class="state-dot glow-pulse"></div>
-            <h3 class="state-name">Deployment</h3>
-            <p class="state-desc">Deploy clean electricity to facilities, equipment, or vehicle fleets.</p>
-          </div>
-        </div>
+  <!-- HOW IT WORKS -->
+  <section class="section how-it-works-section" id="how-it-works">
+    <div class="container">
+      <div class="how-it-works-header reveal">
+        <span class="section-eyebrow">How It Works</span>
+        <h2 class="section-heading">Three steps to on-site hydrogen.</h2>
       </div>
-      <!-- Mobile alternate layout can just stack them simply -->
-      <div class="states-mobile mobile-only">
-        <div class="state-node">
-          <h3 class="state-name">Generation</h3>
-          <p class="state-desc">Convert solar power or organic waste into hydrogen energy.</p>
+      <div class="how-it-works-grid reveal">
+        <div class="how-it-works-card">
+          <div class="how-it-works-step">01</div>
+          <h3 class="how-it-works-name">Make hydrogen on site</h3>
+          <p class="how-it-works-desc">Solar or biomass powers production — on your property, no utility connection needed.</p>
         </div>
-        <div class="state-node">
-          <h3 class="state-name">Storage</h3>
-          <p class="state-desc">Hold clean hydrogen on-site indefinitely with zero degradation.</p>
+        <div class="how-it-works-connector" aria-hidden="true">
+          <svg viewBox="0 0 48 2" fill="none"><line x1="0" y1="1" x2="48" y2="1" stroke="var(--color-accent)" stroke-width="1.5" stroke-dasharray="4 3"/></svg>
         </div>
-        <div class="state-node">
-          <h3 class="state-name">Deployment</h3>
-          <p class="state-desc">Deploy electricity to facilities, equipment, or fleets.</p>
+        <div class="how-it-works-card">
+          <div class="how-it-works-step">02</div>
+          <h3 class="how-it-works-name">Store your energy</h3>
+          <p class="how-it-works-desc">Hydrogen tanks store energy for days — not hours. Always available on site.</p>
+        </div>
+        <div class="how-it-works-connector" aria-hidden="true">
+          <svg viewBox="0 0 48 2" fill="none"><line x1="0" y1="1" x2="48" y2="1" stroke="var(--color-accent)" stroke-width="1.5" stroke-dasharray="4 3"/></svg>
+        </div>
+        <div class="how-it-works-card">
+          <div class="how-it-works-step">03</div>
+          <h3 class="how-it-works-name">Use it anytime</h3>
+          <p class="how-it-works-desc">Clean electricity for your facility, fleet, or equipment. Zero emissions, no diesel, no grid bills.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- DUAL PATHWAY DIFFERENTIATOR -->
-  <section class="section pathways-section" id="inputs">
+  <section class="section pathways-section">
     <div class="pathways-inner">
       <div class="pathways-header reveal">
         <div class="pathways-header-left">
-          <h2 class="section-heading">Choose Your Input Source</h2>
+          <span class="section-eyebrow">Two Inputs. One System.</span>
+          <h2 class="section-heading">Most companies lock you into one energy source. We don't.</h2>
         </div>
         <div class="pathways-header-right">
-          <p class="section-sub">Rockwell H2 handles both solar electrolysis and biomass thermolysis. Both feed into the same storage and deployment system. You pick the input based on what your facility has.</p>
+          <p class="section-sub">Rockwell H2 handles both solar electrolysis and biomass thermolysis. Both feed into the same storage and fuel cell system. You pick the input based on what your facility has. The hydrogen is the same either way.</p>
         </div>
       </div>
 
@@ -217,17 +206,17 @@
               <span class="flow-step-label">Input</span>
               <span class="flow-step-value">Solar, wind, or grid electricity</span>
             </div>
-            <div class="pathway-flow-arrow">↓</div>
+            <div class="pathway-flow-arrow">&#8595;</div>
             <div class="pathway-flow-step pathway-flow-step--product">
               <span class="flow-step-label">Electrolysis</span>
-              <span class="flow-step-value">Power Pack 200 — 200 kW / 90 kg H₂ per day<br>Power Pack 500 — 500 kW / 225 kg H₂ per day</span>
+              <span class="flow-step-value">Power Pack 200 — 200 kW / 90 kg H&#8322; per day<br>Power Pack 500 — 500 kW / 225 kg H&#8322; per day</span>
             </div>
-            <div class="pathway-flow-arrow">↓</div>
+            <div class="pathway-flow-arrow">&#8595;</div>
             <div class="pathway-flow-step pathway-flow-step--shared">
               <span class="flow-step-label">Storage</span>
               <span class="flow-step-value">Power Bank — 300 kg @ 350 bar</span>
             </div>
-            <div class="pathway-flow-arrow">↓</div>
+            <div class="pathway-flow-arrow">&#8595;</div>
             <div class="pathway-flow-step pathway-flow-step--shared">
               <span class="flow-step-label">Output</span>
               <span class="flow-step-value">Power OnDemand 60 or 300 fuel cell</span>
@@ -237,7 +226,7 @@
             <span class="pathway-best-for-label">Best for</span>
             Wineries, water treatment, facilities with rooftop or land area
           </div>
-          <a href="./solar.html" class="pathway-link">Solar pathway details →</a>
+          <a href="./solar.html" class="pathway-link">Solar pathway details &#8594;</a>
           <a href="./Rockwell_H2_Solar_Brochure.pdf" class="pathway-download" download>
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12l-4-4h2.5V3h3v5H12L8 12zm-5 2h10v-1.5H3V14z"/></svg>Download Solar Brochure
           </a>
@@ -257,17 +246,17 @@
               <span class="flow-step-label">Input</span>
               <span class="flow-step-value">Organic waste: crop residue, manure, food processing byproducts</span>
             </div>
-            <div class="pathway-flow-arrow">↓</div>
+            <div class="pathway-flow-arrow">&#8595;</div>
             <div class="pathway-flow-step pathway-flow-step--product">
               <span class="flow-step-label">Thermolysis</span>
-              <span class="flow-step-value">Power Pack 200 — 90 kg H₂ per day<br><span class="flow-byproduct">+ Biochar fertilizer as a second revenue stream</span></span>
+              <span class="flow-step-value">Power Pack 200 — 90 kg H&#8322; per day<br><span class="flow-byproduct">+ Biochar fertilizer as a second revenue stream</span></span>
             </div>
-            <div class="pathway-flow-arrow">↓</div>
+            <div class="pathway-flow-arrow">&#8595;</div>
             <div class="pathway-flow-step pathway-flow-step--shared">
               <span class="flow-step-label">Storage</span>
               <span class="flow-step-value">Power Bank — 300 kg @ 350 bar</span>
             </div>
-            <div class="pathway-flow-arrow">↓</div>
+            <div class="pathway-flow-arrow">&#8595;</div>
             <div class="pathway-flow-step pathway-flow-step--shared">
               <span class="flow-step-label">Output</span>
               <span class="flow-step-value">Power OnDemand 60 or 300 fuel cell</span>
@@ -277,7 +266,7 @@
             <span class="pathway-best-for-label">Best for</span>
             Dairies, food processors, cities with organic waste streams
           </div>
-          <a href="./biomass.html" class="pathway-link">Biomass pathway details →</a>
+          <a href="./biomass.html" class="pathway-link">Biomass pathway details &#8594;</a>
           <a href="./Rockwell_H2_Biomass_Brochure.pdf" class="pathway-download" download>
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12l-4-4h2.5V3h3v5H12L8 12zm-5 2h10v-1.5H3V14z"/></svg>Download Biomass Brochure
           </a>
@@ -287,8 +276,8 @@
         <div class="mobile-only">
           <div class="m-pathway-card">
             <div class="m-pathway-card-header">
-              <div class="m-pathway-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+              <div class="m-pathway-icon" style="background:#fef9c3;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
               </div>
               <div>
                 <div class="m-pathway-name">Solar to Hydrogen</div>
@@ -297,7 +286,11 @@
             </div>
             <div class="m-pathway-body">
               <p class="m-pathway-desc">Solar panels power an electrolyzer that splits water into hydrogen. Zero emissions, no waste stream required.</p>
-              <a href="./solar.html" class="m-pathway-link">Solar pathway details →</a>
+              <div class="m-pathway-pills">
+                <span class="m-spec-pill">90-225 kg/day</span>
+                <span class="m-spec-pill">Grid-optional</span>
+              </div>
+              <a href="./solar.html" class="m-pathway-link">Solar pathway details &#8594;</a>
               <a href="./Rockwell_H2_Solar_Brochure.pdf" class="pathway-download" download>
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12l-4-4h2.5V3h3v5H12L8 12zm-5 2h10v-1.5H3V14z"/></svg>Download Solar Brochure
               </a>
@@ -305,8 +298,8 @@
           </div>
           <div class="m-pathway-card">
             <div class="m-pathway-card-header">
-              <div class="m-pathway-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22V12M12 12C12 12 8 10 6 6c3 0 6 2 6 6zM12 12c0 0 4-2 6-6-3 0-6 2-6 6z"/><path d="M5 20c2-2 4-4 7-8"/></svg>
+              <div class="m-pathway-icon" style="background:#dcfce7;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2" aria-hidden="true"><path d="M12 22V12M12 12C12 12 8 10 6 6c3 0 6 2 6 6zM12 12c0 0 4-2 6-6-3 0-6 2-6 6z"/><path d="M5 20c2-2 4-4 7-8"/></svg>
               </div>
               <div>
                 <div class="m-pathway-name">Biomass to Hydrogen</div>
@@ -315,7 +308,11 @@
             </div>
             <div class="m-pathway-body">
               <p class="m-pathway-desc">Your organic waste — crop residue, manure, food processing byproducts — converted to hydrogen via thermolysis. Biochar is a second revenue stream.</p>
-              <a href="./biomass.html" class="m-pathway-link">Biomass pathway details →</a>
+              <div class="m-pathway-pills">
+                <span class="m-spec-pill">90 kg/day</span>
+                <span class="m-spec-pill">+ Biochar output</span>
+              </div>
+              <a href="./biomass.html" class="m-pathway-link">Biomass pathway details &#8594;</a>
               <a href="./Rockwell_H2_Biomass_Brochure.pdf" class="pathway-download" download>
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12l-4-4h2.5V3h3v5H12L8 12zm-5 2h10v-1.5H3V14z"/></svg>Download Biomass Brochure
               </a>
@@ -331,11 +328,12 @@
   <section class="section modular-section" data-nav-dark>
     <div class="modular-inner">
       <div class="container">
-        <div class="modular-header reveal-scale">
+        <div class="modular-header reveal">
           <div>
-            <h2 class="section-heading section-heading-white">Engineered systems,<br>deployed for over 30 years.</h2>
+            <span class="section-eyebrow" style="color: var(--color-accent);">The Modular Advantage</span>
+            <h2 class="section-heading section-heading-white">One container to start.<br>Unlimited from there.</h2>
           </div>
-          <p class="section-sub section-sub-white">Every Rockwell H2 product ships in a standard 20-ft ISO container. Weatherproof, grid-ready, certified for outdoor deployment. Drop on a pad, connect to grid and water, and you're running. No civil engineering. No custom infrastructure.</p>
+          <p class="section-sub section-sub-white">Every Rockwell H2 product ships in a standard 20-ft ISO container. Weatherproof, grid-ready, certified for outdoor deployment. When your energy needs grow, you add another container. That's it. No redesign, no new infrastructure.</p>
         </div>
 
         <!-- Container chain diagram -->
@@ -355,7 +353,7 @@
                 <circle cx="188" cy="46" r="4" fill="none" stroke="#39d353" stroke-width="1"/>
               </svg>
             </div>
-            <div class="container-spec">90 kg H₂/day</div>
+            <div class="container-spec">90 kg H&#8322;/day</div>
           </div>
 
           <div class="chain-connector" aria-label="connects to">
@@ -377,7 +375,7 @@
                 <circle cx="188" cy="46" r="4" fill="none" stroke="#39d353" stroke-width="1"/>
               </svg>
             </div>
-            <div class="container-spec">H₂ Storage</div>
+            <div class="container-spec">H&#8322; Storage</div>
           </div>
 
           <div class="chain-connector" aria-label="connects to">
@@ -431,9 +429,9 @@
                 </div>
                 <div class="m-step-body">
                   <div class="m-step-name">Power Pack</div>
-                  <div class="m-step-role">Electrolyzer · produces H₂</div>
+                  <div class="m-step-role">Electrolyzer &middot; produces H&#8322;</div>
                 </div>
-                <div class="m-step-spec">90–225 kg/day</div>
+                <div class="m-step-spec">90-225 kg/day</div>
               </div>
               <div class="m-step">
                 <div class="m-step-left">
@@ -442,9 +440,9 @@
                 </div>
                 <div class="m-step-body">
                   <div class="m-step-name">Power Bank</div>
-                  <div class="m-step-role">Storage · holds H₂ under pressure</div>
+                  <div class="m-step-role">Storage &middot; holds H&#8322; under pressure</div>
                 </div>
-                <div class="m-step-spec">300 kg · 350 bar</div>
+                <div class="m-step-spec">300 kg &middot; 350 bar</div>
               </div>
               <div class="m-step">
                 <div class="m-step-left">
@@ -453,9 +451,9 @@
                 </div>
                 <div class="m-step-body">
                   <div class="m-step-name">Power OnDemand</div>
-                  <div class="m-step-role">Fuel cell · clean electricity out</div>
+                  <div class="m-step-role">Fuel cell &middot; clean electricity out</div>
                 </div>
-                <div class="m-step-spec">60–300 kW</div>
+                <div class="m-step-spec">60-300 kW</div>
               </div>
               <div class="m-step-scale">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#39d353" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -478,11 +476,12 @@
   <section class="section products-section">
     <div class="products-inner">
       <div class="products-header reveal">
+        <span class="section-eyebrow">Product Line</span>
         <h2 class="section-heading">The complete system,<br>in four containers.</h2>
       </div>
 
-      <div class="product-rows desktop-only reveal-stagger-children">
-        <a href="./solar.html" class="product-row">
+      <div class="product-rows desktop-only">
+        <a href="./solar.html" class="product-row reveal">
           <div class="product-row-number">01</div>
           <div class="product-row-main">
             <div class="product-row-name">Power Pack 200</div>
@@ -490,13 +489,13 @@
           </div>
           <div class="product-row-specs">
             <span class="product-spec"><span class="spec-val">200 kW</span><span class="spec-key">Power Input</span></span>
-            <span class="product-spec"><span class="spec-val">90 kg</span><span class="spec-key">H₂ / Day</span></span>
+            <span class="product-spec"><span class="spec-val">90 kg</span><span class="spec-key">H&#8322; / Day</span></span>
             <span class="product-spec"><span class="spec-val">20 ft</span><span class="spec-key">ISO Container</span></span>
           </div>
-          <div class="product-row-arrow">→</div>
+          <div class="product-row-arrow">&#8594;</div>
         </a>
 
-        <a href="./solar.html" class="product-row">
+        <a href="./solar.html" class="product-row reveal reveal-delay-1">
           <div class="product-row-number">02</div>
           <div class="product-row-main">
             <div class="product-row-name">Power Pack 500</div>
@@ -504,45 +503,47 @@
           </div>
           <div class="product-row-specs">
             <span class="product-spec"><span class="spec-val">500 kW</span><span class="spec-key">Power Input</span></span>
-            <span class="product-spec"><span class="spec-val">225 kg</span><span class="spec-key">H₂ / Day</span></span>
+            <span class="product-spec"><span class="spec-val">225 kg</span><span class="spec-key">H&#8322; / Day</span></span>
             <span class="product-spec"><span class="spec-val">20 ft</span><span class="spec-key">ISO Container</span></span>
           </div>
-          <div class="product-row-arrow">→</div>
+          <div class="product-row-arrow">&#8594;</div>
         </a>
 
-        <a href="./solar.html" class="product-row">
+        <a href="./solar.html" class="product-row reveal reveal-delay-2">
           <div class="product-row-number">03</div>
           <div class="product-row-main">
             <div class="product-row-name">Power Bank</div>
             <div class="product-row-type">Hydrogen Storage</div>
           </div>
           <div class="product-row-specs">
-            <span class="product-spec"><span class="spec-val">300 kg</span><span class="spec-key">H₂ Capacity</span></span>
+            <span class="product-spec"><span class="spec-val">300 kg</span><span class="spec-key">H&#8322; Capacity</span></span>
             <span class="product-spec"><span class="spec-val">350 bar</span><span class="spec-key">Pressure</span></span>
             <span class="product-spec"><span class="spec-val">20 ft</span><span class="spec-key">ISO Container</span></span>
           </div>
-          <div class="product-row-arrow">→</div>
+          <div class="product-row-arrow">&#8594;</div>
         </a>
 
-        <a href="./solar.html" class="product-row">
+        <a href="./solar.html" class="product-row reveal reveal-delay-3">
           <div class="product-row-number">04</div>
           <div class="product-row-main">
             <div class="product-row-name">Power OnDemand</div>
             <div class="product-row-type">Fuel Cell System — 60 kW or 300 kW</div>
           </div>
           <div class="product-row-specs">
-            <span class="product-spec"><span class="spec-val">60–300 kW</span><span class="spec-key">Output</span></span>
-            <span class="product-spec"><span class="spec-val">110–480V</span><span class="spec-key">Electrical</span></span>
+            <span class="product-spec"><span class="spec-val">60-300 kW</span><span class="spec-key">Output</span></span>
+            <span class="product-spec"><span class="spec-val">110-480V</span><span class="spec-key">Electrical</span></span>
             <span class="product-spec"><span class="spec-val">20 ft</span><span class="spec-key">ISO Container</span></span>
           </div>
-          <div class="product-row-arrow">→</div>
+          <div class="product-row-arrow">&#8594;</div>
         </a>
       </div>
         <!-- MOBILE: Product cards -->
         <div class="mobile-only">
           <div class="m-product-photo-wrap">
             <img src="./hydro-forklift.png" alt="Green hydrogen-powered forklift at charging station" class="m-product-photo" />
-
+            <div class="m-product-photo-overlay">
+              <span class="m-product-photo-tag">Zero-emission. On-site. Ready now.</span>
+            </div>
           </div>
         </div>
         <div class="mobile-only m-product-list">
@@ -551,6 +552,7 @@
             <div>
               <div class="m-product-name">Power Pack 200</div>
               <div class="m-product-desc">200 kW electrolyzer. Produces 90 kg of clean hydrogen per day.</div>
+              <span class="m-product-badge">90 kg H&#8322;/day</span>
             </div>
           </a>
           <a href="./solar.html" class="m-product-card">
@@ -558,6 +560,7 @@
             <div>
               <div class="m-product-name">Power Pack 500</div>
               <div class="m-product-desc">500 kW electrolyzer. Scales production to 225 kg per day.</div>
+              <span class="m-product-badge">225 kg H&#8322;/day</span>
             </div>
           </a>
           <a href="./solar.html" class="m-product-card">
@@ -565,6 +568,7 @@
             <div>
               <div class="m-product-name">Power Bank</div>
               <div class="m-product-desc">Hydrogen storage system. 300 kg capacity at 350 bar, outdoor certified.</div>
+              <span class="m-product-badge">300 kg storage</span>
             </div>
           </a>
           <a href="./solar.html" class="m-product-card">
@@ -572,42 +576,49 @@
             <div>
               <div class="m-product-name">Power OnDemand</div>
               <div class="m-product-desc">Fuel cell output system. 60 kW or 300 kW clean electricity on tap.</div>
+              <span class="m-product-badge">60-300 kW output</span>
             </div>
           </a>
         </div>
     </div>
   </section>
 
-  <!-- INDUSTRIES — ruled list -->
-  <section class="section industries-list-section" id="industries">
+  <!-- INDUSTRIES -->
+  <section class="section industries-list-section">
     <div class="container">
-      <div class="industries-list-header reveal-slide-up">
+      <div class="industries-list-header reveal">
         <div>
+          <span class="section-eyebrow">Who We Build For</span>
           <h2 class="section-heading">Operations that can't afford downtime.</h2>
         </div>
         <p class="section-sub">These operations run on tight margins and can't afford energy surprises. Unreliable power means halted production, spoiled product, or missed deliveries. On-site hydrogen removes that variable.</p>
       </div>
 
-      <div class="industries-list desktop-only reveal-stagger-children">
-        <div class="industry-row">
-          <span class="industry-row-name">Farms & Agriculture</span>
-          <span class="industry-row-detail">Convert organic waste into usable fuel. Reduce diesel and electricity costs for heavy equipment.</span>
+      <div class="industries-list desktop-only">
+        <div class="industry-row reveal">
+          <span class="industry-row-name">Food Processing &amp; Agriculture</span>
+          <span class="industry-row-detail">Turn crop waste into hydrogen + biochar. Two revenue streams from one waste stream.</span>
+          <span class="industry-row-pathway">Biomass pathway</span>
         </div>
-        <div class="industry-row">
-          <span class="industry-row-name">Wineries & Vineyards</span>
-          <span class="industry-row-detail">Reduce waste from organic byproducts. Maintain complete energy independence during crush season.</span>
+        <div class="industry-row reveal reveal-delay-1">
+          <span class="industry-row-name">Wineries &amp; Vineyards</span>
+          <span class="industry-row-detail">Power crush season, cold storage, and forklift fleets from solar or pomace waste on-site.</span>
+          <span class="industry-row-pathway">Solar or Biomass</span>
         </div>
-        <div class="industry-row">
+        <div class="industry-row reveal reveal-delay-2">
           <span class="industry-row-name">Water Treatment Plants</span>
-          <span class="industry-row-detail">Use existing site power to generate hydrogen for critical backup, ensuring no disruption to vital municipal services.</span>
+          <span class="industry-row-detail">Solar panels are often already on-site. Use that power to make hydrogen instead of selling it back to the grid for pennies.</span>
+          <span class="industry-row-pathway">Solar pathway</span>
         </div>
-        <div class="industry-row">
-          <span class="industry-row-name">Food Processing</span>
-          <span class="industry-row-detail">Turn continuous organic waste output into continuous power. Dual revenue stream with biochar.</span>
+        <div class="industry-row reveal reveal-delay-3">
+          <span class="industry-row-name">Municipal &amp; City Operations</span>
+          <span class="industry-row-detail">Organic waste from parks, kitchens, and transfer stations becomes fuel for city vehicles and public facilities.</span>
+          <span class="industry-row-pathway">Biomass pathway</span>
         </div>
-        <div class="industry-row">
-          <span class="industry-row-name">Logistics Fleets</span>
-          <span class="industry-row-detail">Refuel high-utilization fleets on-site without range anxiety or charging windows. Diesel-equivalent performance.</span>
+        <div class="industry-row reveal reveal-delay-4">
+          <span class="industry-row-name">Transportation &amp; Logistics Fleets</span>
+          <span class="industry-row-detail">Refuel in minutes on-site. No charging windows, no range anxiety, no diesel. Works for forklifts, trucks, and heavy equipment.</span>
+          <span class="industry-row-pathway">Solar or Biomass</span>
         </div>
       </div>
         <!-- MOBILE: Industries grid -->
@@ -619,28 +630,33 @@
           <div class="m-industries-grid">
             <div class="m-industry-tile">
               <div class="m-industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#39d353" stroke-width="1.8" aria-hidden="true"><path d="M12 22c4.97 0 9-3.13 9-7s-4.03-7-9-7-9 3.13-9 7 4.03 7 9 7z"/><path d="M12 8V3M9 5l3-3 3 3"/><circle cx="12" cy="8" r="1" fill="#39d353"/></svg></div>
-              <div class="m-industry-name">Wineries & Vineyards</div>
-              <div class="m-industry-sub">Energy independence during crush harvest</div>
+              <div class="m-industry-name">Wineries &amp; Vineyards</div>
+              <div class="m-industry-sub">Power crush season from solar or pomace waste</div>
             </div>
             <div class="m-industry-tile">
               <div class="m-industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#39d353" stroke-width="1.8" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-              <div class="m-industry-name">Farms</div>
-              <div class="m-industry-sub">Convert organic waste into usable fuel</div>
+              <div class="m-industry-name">Dairies</div>
+              <div class="m-industry-sub">24/7 refrigeration &amp; operations</div>
             </div>
             <div class="m-industry-tile">
               <div class="m-industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#39d353" stroke-width="1.8" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="9.5" y1="14.5" x2="14.5" y2="14.5"/></svg></div>
               <div class="m-industry-name">Food Processing</div>
-              <div class="m-industry-sub">Turn continuous waste into continuous power</div>
+              <div class="m-industry-sub">Turn crop waste into hydrogen + biochar</div>
+            </div>
+            <div class="m-industry-tile">
+              <div class="m-industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#39d353" stroke-width="1.8" aria-hidden="true"><path d="M3 21h18M9 8h1m5 0h1M9 12h1m5 0h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/></svg></div>
+              <div class="m-industry-name">Municipal</div>
+              <div class="m-industry-sub">Facilities, fleet fueling &amp; city operations</div>
             </div>
             <div class="m-industry-tile">
               <div class="m-industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#39d353" stroke-width="1.8" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
               <div class="m-industry-name">Water Treatment</div>
-              <div class="m-industry-sub">Reliable on-site power for critical backup</div>
+              <div class="m-industry-sub">Use on-site solar to make hydrogen on-site</div>
             </div>
             <div class="m-industry-tile">
               <div class="m-industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#39d353" stroke-width="1.8" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-              <div class="m-industry-name">Logistics Fleets</div>
-              <div class="m-industry-sub">Refuel on-site without charging windows</div>
+              <div class="m-industry-name">Fleet &amp; Logistics</div>
+              <div class="m-industry-sub">Refuel on-site — no charging windows</div>
             </div>
           </div>
         </div>
@@ -649,15 +665,16 @@
 
   <hr class="section-divider" aria-hidden="true" />
 
-  <!-- CTA BANNER (Transition) -->
+  <!-- CTA BANNER -->
   <section class="cta-banner">
-    <div class="cta-h2-watermark" aria-hidden="true">H₂</div>
+    <div class="cta-h2-watermark" aria-hidden="true">H&#8322;</div>
     <div class="container">
       <div class="cta-banner-content reveal">
-        <h2>Get a system estimate for your property.</h2>
-        <p>See production output, footprint, and requirements in minutes.</p>
+        <h2>See if hydrogen makes sense for your operation.</h2>
+        <p>We'll walk you through what a system would look like, what it produces, and what it costs. Straight answers, no sales pitch.</p>
         <div class="cta-banner-actions">
-          <button class="btn btn-primary btn-lg" data-open-modal="estimate-modal">Get System Estimate</button>
+          <button class="btn btn-primary btn-lg" data-open-modal="contact-modal">Talk to Our Team</button>
+          <a href="./calculator.html" class="btn btn-outline-white btn-lg">Try the H&#8322; Calculator</a>
         </div>
       </div>
     </div>
@@ -671,6 +688,7 @@
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <div class="modal-header">
+      <p class="modal-eyebrow">Quick Contact</p>
       <h2 class="modal-title" id="modal-title">Talk to Brad or Nick directly.</h2>
       <p class="modal-sub">Drop your info and we'll call you back within one business day. No sales team, no runaround.</p>
     </div>
@@ -697,100 +715,15 @@
       </div>
       <div class="modal-field">
         <label class="modal-label" for="m-message">What are you working on? <span aria-hidden="true">*</span></label>
-        <textarea class="modal-textarea" id="m-message" name="message" rows="3" placeholder="Describe your facility, energy needs, or questions…" required></textarea>
+        <textarea class="modal-textarea" id="m-message" name="message" rows="3" placeholder="Describe your facility, energy needs, or questions..." required></textarea>
       </div>
       <div class="modal-actions">
-        <button type="submit" class="btn btn-primary btn-lg modal-submit">Send Message →</button>
-        <a href="./contact.html" class="modal-full-form-link">Need the full form? →</a>
+        <button type="submit" class="btn btn-primary btn-lg modal-submit">Send Message &#8594;</button>
+        <a href="./contact.html" class="modal-full-form-link">Need the full form? &#8594;</a>
       </div>
       <div id="modal-success" class="modal-success" hidden>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#39d353" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
         <p>Message sent! We'll be in touch within one business day.</p>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- SYSTEM ESTIMATE MODAL -->
-<div id="estimate-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="estimate-modal-title" hidden>
-  <div class="modal-card modal-card--estimate">
-    <button class="modal-close" data-close-modal aria-label="Close">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-    <div class="modal-header">
-      <h2 class="modal-title" id="estimate-modal-title">Get a hydrogen system sized for your operation</h2>
-      <p class="modal-sub">We'll use this to size a system for your facility.</p>
-      <p class="modal-sub modal-sub--muted">We'll size your system first, then walk through costs if it makes sense.</p>
-    </div>
-    <form id="estimate-form" class="modal-form" novalidate>
-      <div class="modal-form-row">
-        <div class="modal-field">
-          <label class="modal-label" for="est-name">Name <span aria-hidden="true">*</span></label>
-          <input class="modal-input" type="text" id="est-name" name="name" placeholder="Your name" autocomplete="name" required />
-        </div>
-        <div class="modal-field">
-          <label class="modal-label" for="est-company">Company</label>
-          <input class="modal-input" type="text" id="est-company" name="company" placeholder="Your company" autocomplete="organization" />
-        </div>
-      </div>
-      <div class="modal-form-row">
-        <div class="modal-field">
-          <label class="modal-label" for="est-email">Email <span aria-hidden="true">*</span></label>
-          <input class="modal-input" type="email" id="est-email" name="email" placeholder="you@company.com" autocomplete="email" required />
-        </div>
-        <div class="modal-field">
-          <label class="modal-label" for="est-phone">Phone</label>
-          <input class="modal-input" type="tel" id="est-phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel" />
-        </div>
-      </div>
-      <div class="modal-field">
-        <label class="modal-label" for="est-industry">Industry</label>
-        <select class="modal-input calc-select" id="est-industry" name="industry">
-          <option value="">Select your industry</option>
-          <option value="dairy">Dairy &amp; Agriculture</option>
-          <option value="winery">Wineries &amp; Vineyards</option>
-          <option value="food">Food Processing</option>
-          <option value="fleet">Fleet &amp; Transportation</option>
-          <option value="water">Water Treatment</option>
-          <option value="municipal">Municipal</option>
-          <option value="industrial">General Industrial</option>
-        </select>
-      </div>
-      <div class="modal-field">
-        <label class="modal-label">What's your primary goal?</label>
-        <div class="estimate-goals">
-          <label class="estimate-goal-option">
-            <input type="radio" name="goal" value="lower-costs" />
-            <span>Lower energy costs</span>
-          </label>
-          <label class="estimate-goal-option">
-            <input type="radio" name="goal" value="waste-to-energy" />
-            <span>Turn waste into energy</span>
-          </label>
-          <label class="estimate-goal-option">
-            <input type="radio" name="goal" value="backup-power" />
-            <span>Add backup power</span>
-          </label>
-          <label class="estimate-goal-option">
-            <input type="radio" name="goal" value="fuel-vehicles" />
-            <span>Fuel vehicles or equipment</span>
-          </label>
-        </div>
-      </div>
-      <div class="modal-field">
-        <label class="modal-label" for="est-notes">Anything else we should know?</label>
-        <textarea class="modal-textarea" id="est-notes" name="notes" rows="2" placeholder="Tell us about your operation, energy needs, or questions..."></textarea>
-      </div>
-      <div class="modal-actions">
-        <button type="submit" class="btn btn-primary btn-lg modal-submit">Get My System Estimate</button>
-      </div>
-      <div id="estimate-success" class="modal-success" hidden>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#39d353" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        <div>
-          <p><strong>You're all set.</strong></p>
-          <p>We're reviewing your operation now. You'll hear from the team designing these systems within one business day.</p>
-          <p style="margin-top: var(--space-2); color: var(--color-text-muted); font-size: var(--text-xs);">No generic sales calls, just a real conversation about how this could work for your facility.</p>
-        </div>
       </div>
     </form>
   </div>
@@ -802,7 +735,7 @@
     <div class="footer-grid">
       <div>
         <a href="./index.html" class="nav-logo" style="margin-bottom: var(--space-4);">
-          <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none">
             <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#0d1b2e" stroke="#39d353" stroke-width="2"/>
             <text text-anchor="middle" font-family="sans-serif" font-weight="900" fill="#39d353"><tspan x="20" y="23" font-size="14">H</tspan><tspan dy="3" font-size="9">2</tspan></text>
           </svg>
@@ -816,17 +749,17 @@
         <ul class="footer-links" role="list">
           <li><a href="./solar.html">Solar to Hydrogen</a></li>
           <li><a href="./biomass.html">Biomass to Hydrogen</a></li>
-          <li><a href="./calculator.html">H₂ Calculator</a></li>
+          <li><a href="./calculator.html">H&#8322; Calculator</a></li>
         </ul>
       </div>
       <div>
         <h4 class="footer-col-title">Industries</h4>
         <ul class="footer-links" role="list">
-          <li><a href="./industries.html#food">Food Processing</a></li>
-          <li><a href="./industries.html#winery">Wineries &amp; Vineyards</a></li>
-          <li><a href="./industries.html#water">Water Treatment</a></li>
-          <li><a href="./industries.html#municipal">Municipal</a></li>
-          <li><a href="./industries.html#fleet">Transportation</a></li>
+          <li><a href="./contact.html">Food Processing</a></li>
+          <li><a href="./contact.html">Wineries &amp; Vineyards</a></li>
+          <li><a href="./contact.html">Water Treatment</a></li>
+          <li><a href="./contact.html">Municipal</a></li>
+          <li><a href="./contact.html">Transportation</a></li>
         </ul>
       </div>
       <div>
@@ -845,519 +778,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Rockwell H2 Systems. All rights reserved.</span>
-      <span>Serving: Vineyards · Dairies · Food Processing · Municipal Facilities · Industrial Operations</span>
+      <span>&copy; 2026 Rockwell H2 Systems. All rights reserved.</span>
+      <span>Serving: Vineyards &middot; Dairies &middot; Food Processing &middot; Municipal Facilities &middot; Industrial Operations</span>
     </div>
   </div>
 </footer>
 
-<script>
-// Theme toggle
-(function() {
-  const t = document.querySelector('[data-theme-toggle]');
-  const r = document.documentElement;
-  let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
-  if (!r.getAttribute('data-theme')) r.setAttribute('data-theme', d);
-  else d = r.getAttribute('data-theme');
-  if (t) {
-    t.innerHTML = d === 'dark'
-      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-    t.addEventListener('click', () => {
-      d = d === 'dark' ? 'light' : 'dark';
-      r.setAttribute('data-theme', d);
-      t.setAttribute('aria-label', 'Switch to ' + (d === 'dark' ? 'light' : 'dark') + ' mode');
-      t.innerHTML = d === 'dark'
-        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-    });
-  }
-})();
-
-// Sticky header
-const header = document.getElementById('site-header');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 20) header.classList.add('site-header--scrolled');
-  else header.classList.remove('site-header--scrolled');
-});
-
-// Mobile menu
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileClose = document.getElementById('mobile-close');
-hamburger.addEventListener('click', () => {
-  mobileMenu.classList.add('open');
-  hamburger.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-});
-mobileClose.addEventListener('click', () => {
-  mobileMenu.classList.remove('open');
-  hamburger.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-});
-
-// Scroll reveal
-const revealEls = document.querySelectorAll('.reveal, .reveal-slide-up, .reveal-scale, .reveal-stagger-children');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-revealEls.forEach(el => observer.observe(el));
-
-// Nav dropdown keyboard
-document.querySelectorAll('.nav-dropdown').forEach(dd => {
-  dd.addEventListener('mouseenter', () => dd.classList.add('open'));
-  dd.addEventListener('mouseleave', () => dd.classList.remove('open'));
-});
-
-// Quick contact modal
-(function() {
-  const overlay = document.getElementById('contact-modal');
-  if (!overlay) return;
-
-  function openModal() {
-    overlay.hidden = false;
-    requestAnimationFrame(() => overlay.classList.add('modal-open'));
-    document.body.style.overflow = 'hidden';
-    overlay.querySelector('.modal-close').focus();
-  }
-  function closeModal() {
-    overlay.classList.remove('modal-open');
-    document.body.style.overflow = '';
-    setTimeout(() => { overlay.hidden = true; }, 200);
-  }
-
-  document.querySelectorAll('[data-open-modal="contact-modal"]').forEach(btn => {
-    btn.addEventListener('click', openModal);
-  });
-  overlay.querySelectorAll('[data-close-modal]').forEach(btn => {
-    btn.addEventListener('click', closeModal);
-  });
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !overlay.hidden) closeModal(); });
-
-  // Form submit (no backend — shows success state)
-  document.getElementById('modal-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('.modal-submit');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-    setTimeout(() => {
-      this.querySelectorAll('.modal-form-row, .modal-field, .modal-actions').forEach(el => el.style.display = 'none');
-      document.getElementById('modal-success').hidden = false;
-    }, 800);
-  });
-})();
-
-// Estimate modal
-(function() {
-  const overlay = document.getElementById('estimate-modal');
-  if (!overlay) return;
-
-  function openModal() {
-    overlay.hidden = false;
-    requestAnimationFrame(() => overlay.classList.add('modal-open'));
-    document.body.style.overflow = 'hidden';
-    overlay.querySelector('.modal-close').focus();
-  }
-  function closeModal() {
-    overlay.classList.remove('modal-open');
-    document.body.style.overflow = '';
-    setTimeout(() => { overlay.hidden = true; }, 200);
-  }
-
-  document.querySelectorAll('[data-open-modal="estimate-modal"]').forEach(btn => {
-    btn.addEventListener('click', openModal);
-  });
-  overlay.querySelectorAll('[data-close-modal]').forEach(btn => {
-    btn.addEventListener('click', closeModal);
-  });
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !overlay.hidden) closeModal(); });
-
-  document.getElementById('estimate-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('.modal-submit');
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-    setTimeout(() => {
-      this.querySelectorAll('.modal-form-row, .modal-field, .modal-actions, .estimate-goals').forEach(el => el.style.display = 'none');
-      document.getElementById('estimate-success').hidden = false;
-    }, 800);
-  });
-})();
-
-// Container chain staggered entrance animation
-(function() {
-  const chain = document.querySelector('.container-chain');
-  if (!chain) return;
-  // Mark ready (hides children via CSS) only if reduced-motion is not requested
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    chain.classList.add('chain-animate-ready');
-  }
-  const chainObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        e.target.classList.add('chain-animated');
-        chainObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.25 });
-  chainObserver.observe(chain);
-})();
-
-// Hero showcase card cycle — rotates active state every 3.5s
-(function() {
-  var cards = document.querySelectorAll('.hero-showcase-cards > .hero-card');
-  if (cards.length < 2) return;
-  var idx = 0;
-  setInterval(function() {
-    cards[idx].classList.remove('hero-card--active');
-    // Reset progress bar animation by forcing reflow
-    var bar = cards[idx].querySelector('.hero-card-bar');
-    if (bar) { bar.style.animation = 'none'; bar.offsetHeight; bar.style.animation = ''; }
-    idx = (idx + 1) % cards.length;
-    cards[idx].classList.add('hero-card--active');
-  }, 3500);
-})();
-
-// Hero video parallax — video scrolls at 0.5x creating depth
-(function() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var video = document.querySelector('.hero-video');
-  var hero = document.querySelector('.hero');
-  if (!video || !hero) return;
-  video.style.willChange = 'transform';
-  var ticking = false;
-  window.addEventListener('scroll', function() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function() {
-      var rect = hero.getBoundingClientRect();
-      // Only apply when hero is visible
-      if (rect.bottom > 0) {
-        var scrolled = window.scrollY;
-        video.style.transform = 'translateY(' + (scrolled * 0.35) + 'px)';
-      }
-      ticking = false;
-    });
-  }, { passive: true });
-})();
-
-// Hero stat counter animation — counts up numbers when visible
-(function() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var stats = document.querySelector('.hero-stats');
-  if (!stats) return;
-  var values = stats.querySelectorAll('.hero-stat-value');
-  var animated = false;
-
-  function animateValue(el, end, suffix, duration) {
-    var start = 0;
-    var startTime = null;
-    function step(ts) {
-      if (!startTime) startTime = ts;
-      var progress = Math.min((ts - startTime) / duration, 1);
-      // ease out cubic
-      var eased = 1 - Math.pow(1 - progress, 3);
-      var current = Math.round(start + (end - start) * eased);
-      el.textContent = current + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  var statObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting && !animated) {
-        animated = true;
-        values.forEach(function(v) {
-          var text = v.textContent.trim();
-          var match = text.match(/^(\d+)\+?/);
-          if (match) {
-            var num = parseInt(match[0]);
-            var suffix = text.replace(match[0], '');
-            if (text.indexOf('+') > -1 && suffix.indexOf('+') === -1) suffix = '+' + suffix;
-            animateValue(v, num, suffix, 1200);
-          }
-          // "Zero" stays as text — no counter needed
-        });
-        statObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  statObserver.observe(stats);
-})();
-
-// Inject film grain overlay (::after is taken by H₂ watermark)
-(function() {
-  var hero = document.querySelector('.hero');
-  if (!hero) return;
-  var grain = document.createElement('div');
-  grain.className = 'hero-grain';
-  grain.setAttribute('aria-hidden', 'true');
-  hero.insertBefore(grain, hero.querySelector('.hero-content'));
-})();
-
-// ============================================================
-// HERO PREMIUM INTERACTIONS
-// ============================================================
-(function () {
-  'use strict';
-
-  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (reducedMotion.matches) return;
-
-  var hero = document.querySelector('.hero');
-  if (!hero) return;
-
-  var heroLeft = hero.querySelector('.hero-left');
-  var heroRight = hero.querySelector('.hero-right');
-  var isDesktop = function () { return window.innerWidth > 900; };
-
-  function lerp(a, b, t) {
-    return a + (b - a) * t;
-  }
-
-  // Shared transform state — prevents parallax and scroll-exit from fighting
-  var heroLeftState = { parallaxX: 0, parallaxY: 0, scrollY: 0, scrollOpacity: 1 };
-
-  function applyHeroLeftTransform() {
-    if (!heroLeft) return;
-    var tx = heroLeftState.parallaxX;
-    var ty = heroLeftState.parallaxY + heroLeftState.scrollY;
-    if (tx === 0 && ty === 0 && heroLeftState.scrollOpacity === 1) {
-      heroLeft.style.transform = '';
-      heroLeft.style.opacity = '';
-    } else {
-      heroLeft.style.transform = 'translate(' + tx.toFixed(2) + 'px, ' + ty.toFixed(2) + 'px)';
-      heroLeft.style.opacity = heroLeftState.scrollOpacity < 1
-        ? heroLeftState.scrollOpacity.toFixed(3) : '';
-    }
-  }
-
-  // ------------------------------------------------------------------
-  // 1. MOUSE-RESPONSIVE MICRO-PARALLAX
-  // ------------------------------------------------------------------
-  (function () {
-    var targetX = 0, targetY = 0;
-    var currentLeftX = 0, currentLeftY = 0;
-    var currentRightX = 0, currentRightY = 0;
-    var active = false;
-
-    function onMouseMove(e) {
-      if (!isDesktop()) return;
-      var rect = hero.getBoundingClientRect();
-      var nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-      var ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-      targetX = nx;
-      targetY = ny;
-      if (!active) {
-        active = true;
-        tick();
-      }
-    }
-
-    function onMouseLeave() {
-      targetX = 0;
-      targetY = 0;
-    }
-
-    function tick() {
-      var leftTargetX = -targetX * 3;
-      var leftTargetY = -targetY * 3;
-      currentLeftX = lerp(currentLeftX, leftTargetX, 0.02);
-      currentLeftY = lerp(currentLeftY, leftTargetY, 0.02);
-
-      var rightTargetX = targetX * 2;
-      var rightTargetY = targetY * 2;
-      currentRightX = lerp(currentRightX, rightTargetX, 0.01);
-      currentRightY = lerp(currentRightY, rightTargetY, 0.01);
-
-      // Write to shared state, not directly to DOM
-      heroLeftState.parallaxX = currentLeftX;
-      heroLeftState.parallaxY = currentLeftY;
-      applyHeroLeftTransform();
-
-      if (heroRight) {
-        heroRight.style.transform = 'translate(' +
-          currentRightX.toFixed(2) + 'px, ' +
-          currentRightY.toFixed(2) + 'px)';
-      }
-
-      var settled =
-        Math.abs(currentLeftX) < 0.01 &&
-        Math.abs(currentLeftY) < 0.01 &&
-        Math.abs(currentRightX) < 0.01 &&
-        Math.abs(currentRightY) < 0.01 &&
-        targetX === 0 && targetY === 0;
-
-      if (settled) {
-        heroLeftState.parallaxX = 0;
-        heroLeftState.parallaxY = 0;
-        applyHeroLeftTransform();
-        if (heroRight) heroRight.style.transform = '';
-        active = false;
-        return;
-      }
-
-      requestAnimationFrame(tick);
-    }
-
-    hero.addEventListener('mousemove', onMouseMove);
-    hero.addEventListener('mouseleave', onMouseLeave);
-  })();
-
-  // ------------------------------------------------------------------
-  // 2. SCROLL-LINKED HERO EXIT ANIMATION
-  // ------------------------------------------------------------------
-  (function () {
-    if (!heroLeft) return;
-    var ticking = false;
-
-    window.addEventListener('scroll', function () {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        ticking = false;
-
-        var rect = hero.getBoundingClientRect();
-        var heroH = rect.height;
-
-        if (rect.bottom <= 0 || rect.top >= 0) {
-          if (rect.top >= 0) {
-            heroLeftState.scrollY = 0;
-            heroLeftState.scrollOpacity = 1;
-            applyHeroLeftTransform();
-          }
-          return;
-        }
-
-        var scrollFraction = Math.abs(rect.top) / heroH;
-
-        if (scrollFraction < 0.3) {
-          heroLeftState.scrollY = 0;
-          heroLeftState.scrollOpacity = 1;
-        } else if (scrollFraction <= 0.7) {
-          var fadeProgress = (scrollFraction - 0.3) / 0.4;
-          heroLeftState.scrollOpacity = 1 - fadeProgress;
-          heroLeftState.scrollY = -fadeProgress * 30;
-        } else {
-          heroLeftState.scrollOpacity = 0;
-          heroLeftState.scrollY = -30;
-        }
-        applyHeroLeftTransform();
-      });
-    }, { passive: true });
-  })();
-
-  // ------------------------------------------------------------------
-  // 3. MAGNETIC "TALK TO OUR TEAM" BUTTON
-  // ------------------------------------------------------------------
-  (function () {
-    var heroActions = hero.querySelector('.hero-actions');
-    if (!heroActions) return;
-    var magnetBtn = heroActions.querySelector('[data-open-modal="estimate-modal"]');
-    if (!magnetBtn) return;
-
-    magnetBtn.classList.add('btn-magnetic');
-
-    var magnetRadius = 60;
-    var maxDisplacement = 8;
-
-    function onMouseMove(e) {
-      if (!isDesktop()) return;
-
-      var rect = magnetBtn.getBoundingClientRect();
-      var btnCenterX = rect.left + rect.width / 2;
-      var btnCenterY = rect.top + rect.height / 2;
-
-      var dx = e.clientX - btnCenterX;
-      var dy = e.clientY - btnCenterY;
-      var distance = Math.sqrt(dx * dx + dy * dy);
-
-      if (distance < magnetRadius) {
-        var pull = (1 - distance / magnetRadius) * maxDisplacement;
-        var angle = Math.atan2(dy, dx);
-        var moveX = Math.cos(angle) * pull;
-        var moveY = Math.sin(angle) * pull;
-        magnetBtn.style.transform = 'translate(' +
-          moveX.toFixed(1) + 'px, ' +
-          moveY.toFixed(1) + 'px)';
-      } else {
-        magnetBtn.style.transform = '';
-      }
-    }
-
-    function onMouseLeave() {
-      magnetBtn.style.transform = '';
-    }
-
-    hero.addEventListener('mousemove', onMouseMove);
-    magnetBtn.addEventListener('mouseleave', onMouseLeave);
-  })();
-
-})();
-</script>
-<script data-pplx-inline-edit>
-(function(){
-  if(window===window.top)return;
-  function inlineAll(orig,clone){
-    if(orig.nodeType!==1)return;
-    try{
-      var cs=getComputedStyle(orig);
-      var t='';
-      for(var i=0;i<cs.length;i++){t+=cs[i]+':'+cs.getPropertyValue(cs[i])+';';}
-      clone.style.cssText=t;
-    }catch(e){}
-    var oc=orig.children,cc=clone.children;
-    for(var j=0;j<oc.length&&j<cc.length;j++){inlineAll(oc[j],cc[j]);}
-  }
-  function stripExternal(clone){
-    var imgs=clone.querySelectorAll('img');
-    for(var i=0;i<imgs.length;i++){
-      var s=imgs[i].getAttribute('src');
-      if(s&&!s.startsWith('data:'))imgs[i].removeAttribute('src');
-    }
-    var all=clone.querySelectorAll('*');
-    for(var i=0;i<all.length;i++){
-      var st=all[i].style.cssText;
-      if(st&&st.indexOf('url(')>=0){
-        all[i].style.cssText=st.replace(/url\(["']?(?!data:)[^)"']*["']?\)/gi,'none');
-      }
-    }
-  }
-  window.addEventListener('message',function(e){
-    if(!e.data||e.data.type!=='INLINE_EDIT_CAPTURE_REQUEST')return;
-    var scrollX=window.scrollX||window.pageXOffset||0;
-    var scrollY=window.scrollY||window.pageYOffset||0;
-    var w=window.innerWidth,h=window.innerHeight;
-    try{
-      var clone=document.documentElement.cloneNode(true);
-      var rm=clone.querySelectorAll('script,link[rel="stylesheet"],style');
-      for(var i=0;i<rm.length;i++){rm[i].remove();}
-      inlineAll(document.documentElement,clone);
-      stripExternal(clone);
-      var html=new XMLSerializer().serializeToString(clone);
-      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'">'
-        +'<foreignObject width="100%" height="100%">'
-        +'<div xmlns="http://www.w3.org/1999/xhtml" style="width:'+w+'px;height:'+h+'px;overflow:hidden">'
-        +'<div style="transform:translate(-'+scrollX+'px,-'+scrollY+'px);transform-origin:top left">'
-        +html+'</div></div></foreignObject></svg>';
-      var svgUrl='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
-      var img=new Image();
-      img.onload=function(){
-        var c=document.createElement('canvas');c.width=w;c.height=h;
-        c.getContext('2d').drawImage(img,0,0);
-        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:c.toDataURL('image/png'),scrollX:scrollX,scrollY:scrollY},'*');
-      };
-      img.onerror=function(){
-        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
-      };
-      img.src=svgUrl;
-    }catch(err){
-      window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
-    }
-  });
-})();
-</script></body>
+<script src="./app.js"></script>
+</body>
 </html>
