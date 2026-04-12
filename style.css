@@ -3841,6 +3841,7 @@ input[type='range']::-moz-range-thumb {
     background:
       linear-gradient(to bottom,
         rgba(13, 27, 0, 0) 0%,
+        rgba(13, 27, 46, 0.55) 40%,
         #1a3d59 100%) !important;
   }
 
@@ -3854,11 +3855,18 @@ input[type='range']::-moz-range-thumb {
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-end !important;
-    padding: 72px 20px 20px !important;
+    padding: 72px 20px env(safe-area-inset-bottom, 16px) !important;
     width: 100% !important;
     max-width: none !important;
     margin-inline: 0 !important;
     height: 100%;
+  }
+
+  /* Flexible spacer — absorbs extra height on tall phones,
+     collapses on short ones so content never overflows */
+  .hero-left::before {
+    content: "";
+    flex: 1 1 clamp(0px, 12vh, 140px);
   }
 
   .hero-left {
@@ -3866,6 +3874,7 @@ input[type='range']::-moz-range-thumb {
     flex-direction: column;
     gap: 0;
     padding-inline: 0;
+    flex: 1;
   }
 
   .hero-left h1 {
@@ -3873,13 +3882,13 @@ input[type='range']::-moz-range-thumb {
     line-height: 1.05;
     letter-spacing: -0.03em;
     max-width: none;
-    margin-bottom: clamp(8px, 2vh, 16px) !important;
+    margin-bottom: clamp(10px, 1.8vh, 18px) !important;
   }
 
   .hero-sub {
     font-size: clamp(0.9rem, 2.2vw, 1.1rem);
     max-width: 100%;
-    margin-bottom: clamp(12px, 3vh, 20px);
+    margin-bottom: clamp(16px, 3vh, 24px);
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.45;
   }
@@ -3889,7 +3898,7 @@ input[type='range']::-moz-range-thumb {
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
-    margin-bottom: clamp(10px, 2vh, 16px);
+    margin-bottom: clamp(14px, 2.5vh, 20px);
   }
 
   .hero-actions .btn {
@@ -3920,9 +3929,9 @@ input[type='range']::-moz-range-thumb {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-    padding: 12px 0 0 !important;
-    margin: 12px -20px 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    padding: clamp(10px, 1.8vh, 16px) 0 clamp(8px, 1.2vh, 12px) !important;
+    margin: clamp(14px, 2.5vh, 24px) -20px 0 !important;
     width: calc(100% + 40px);
     border-radius: 0 !important;
   }
@@ -3931,7 +3940,7 @@ input[type='range']::-moz-range-thumb {
     background: none !important;
     border: none !important;
     border-radius: 0 !important;
-    padding: 8px 4px !important;
+    padding: 6px 4px !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     box-shadow: none !important;
@@ -3949,7 +3958,7 @@ input[type='range']::-moz-range-thumb {
     font-size: clamp(1.1rem, 4.5vw, 1.5rem);
     font-weight: 800;
     color: var(--color-accent);
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     letter-spacing: -0.02em;
   }
 
