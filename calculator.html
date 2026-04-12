@@ -18,7 +18,7 @@
 <header class="site-header" id="site-header">
   <nav class="nav container">
     <a href="./index.html" class="nav-logo" aria-label="Rockwell H2 Systems Home">
-      <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none">
+      <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#0d1b2e" stroke="#39d353" stroke-width="2"/>
         <text text-anchor="middle" font-family="sans-serif" font-weight="900" fill="#39d353"><tspan x="20" y="23" font-size="14">H</tspan><tspan dy="3" font-size="9">2</tspan></text>
       </svg>
@@ -29,7 +29,6 @@
       <li class="nav-dropdown">
         <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
           Solutions
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="nav-dropdown-menu">
           <a href="./solar.html" class="nav-dropdown-item">
@@ -52,14 +51,15 @@
           </a>
         </div>
       </li>
-      <li><a href="./calculator.html" aria-current="page">H₂ Calculator</a></li>
+      <li><a href="./calculator.html" aria-current="page">Calculator</a></li>
+      <li><a href="./industries.html">Industries</a></li>
       <li><a href="./contact.html">Contact</a></li>
     </ul>
     <div class="nav-right">
       <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       </button>
-      <a href="./contact.html" class="btn btn-primary">Talk to Our Team</a>
+      <button class="btn btn-primary" data-open-modal="estimate-modal">Get System Estimate</button>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -70,7 +70,7 @@
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
   <div class="mobile-menu-header">
     <a href="./index.html" class="nav-logo">
-      <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none">
+      <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#0d1b2e" stroke="#39d353" stroke-width="2"/>
         <text text-anchor="middle" font-family="sans-serif" font-weight="900" fill="#39d353"><tspan x="20" y="23" font-size="14">H</tspan><tspan dy="3" font-size="9">2</tspan></text>
       </svg>
@@ -83,9 +83,10 @@
   <a href="./index.html">Home</a>
   <a href="./solar.html">Solar to Hydrogen</a>
   <a href="./biomass.html">Biomass to Hydrogen</a>
-  <a href="./calculator.html">H₂ Calculator</a>
+  <a href="./calculator.html">Calculator</a>
+  <a href="./industries.html">Industries</a>
   <a href="./contact.html">Contact</a>
-  <div style="margin-top: auto; padding-top: 2rem; display: flex; justify-content: center;"><a href="./contact.html" class="btn btn-primary btn-lg" style="width: 80%; justify-content:center; text-align: center;">Talk to Our Team</a></div>
+  <div style="margin-top: auto; padding-top: 2rem; display: flex; justify-content: center;"><button class="btn btn-primary btn-lg" style="width: 80%; justify-content:center; text-align: center;" data-open-modal="estimate-modal">Get System Estimate</button></div>
 </div>
 
 <main id="main-content">
@@ -93,15 +94,17 @@
   <section class="page-hero" data-nav-dark>
     <div class="page-hero-hex"></div>
     <div class="container page-hero-content">
-      <span class="page-eyebrow">Interactive Tool</span>
       <h1>See What Hydrogen Can Do For You</h1>
-      <p class="page-hero-sub">Hydrogen production numbers can feel abstract. Use our calculator to see exactly what our systems produce — and what that means for your operation in real-world terms.</p>
+      <p class="page-hero-sub">Hydrogen production numbers can feel abstract. Use our calculator to see exactly what our systems produce, and what that means for your operation in real-world terms.</p>
     </div>
   </section>
 
   <!-- CALCULATOR -->
   <section class="section calculator-section" data-nav-light>
     <div class="container container--narrow">
+      <div class="calc-context-bar" id="calc-context-bar" hidden>
+        <span class="calc-context-text" id="calc-context-text"></span>
+      </div>
       <div class="calc-widget reveal">
         <!-- System selector -->
         <div class="calc-field">
@@ -140,10 +143,14 @@
 
         <!-- Results -->
         <div class="calc-results">
+          <p class="calc-results-label">Your system produces:</p>
           <div class="calc-h2-output">
             <span class="calc-h2-number" id="h2-output">30</span>
-            <span class="calc-h2-unit">kg of H₂ produced per day</span>
+            <span class="calc-h2-unit">kg of H₂ per day</span>
           </div>
+
+          <p class="calc-equiv-label-intro">That's enough to:</p>
+          <p class="calc-tension-line" id="tension-line">Most operations are already generating this much energy potential. They're just not capturing it.</p>
 
           <div class="calc-equivalents">
             <div class="calc-equiv-card">
@@ -166,6 +173,22 @@
               <span class="calc-equiv-number" id="forklifts-output">20</span>
               <span class="calc-equiv-label">hydrogen forklifts<br>fueled for a full shift</span>
             </div>
+          </div>
+
+          <!-- Industry context -->
+          <div class="calc-industry-field">
+            <label class="calc-label" for="industry-select">What kind of operation are you running?</label>
+            <select class="calc-select" id="industry-select">
+              <option value="">Select your industry (optional)</option>
+              <option value="dairy">Dairy &amp; Agriculture</option>
+              <option value="winery">Wineries &amp; Vineyards</option>
+              <option value="food">Food Processing</option>
+              <option value="fleet">Fleet &amp; Transportation</option>
+              <option value="water">Water Treatment</option>
+              <option value="municipal">Municipal</option>
+              <option value="industrial">General Industrial</option>
+            </select>
+            <p class="calc-industry-context" id="industry-context"></p>
           </div>
 
           <!-- Projection toggle -->
@@ -200,13 +223,13 @@
         </div>
       </div>
 
-      <!-- Below calculator -->
-      <div class="reveal" style="margin-top: var(--space-12); text-align: center; background: var(--color-navy); border-radius: var(--radius-2xl); padding: var(--space-10); position: relative; overflow: hidden;">
-        <div style="position: absolute; inset: 0; background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='92' viewBox='0 0 80 92'%3E%3Cpath d='M40 4 L72 22 L72 58 L40 76 L8 58 L8 22 Z' fill='none' stroke='%2339d353' stroke-width='1'/%3E%3C/svg%3E\"); background-size: 80px 92px; opacity: 0.05;"></div>
-        <div style="position: relative; z-index: 1;">
-          <h2 style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-bottom: var(--space-3);">Want a Custom Energy Assessment?</h2>
-          <p style="font-size: var(--text-base); color: rgba(255,255,255,0.65); max-width: 55ch; margin-inline: auto; margin-bottom: var(--space-6); line-height: 1.7;">Every facility is different. Our team can evaluate your energy usage, available feedstock, and goals to build a hydrogen system sized exactly for your operation.</p>
-          <a href="./contact.html" class="btn btn-primary btn-lg">Request a Free Assessment</a>
+      <!-- Bridge CTA -->
+      <div class="calc-bridge-cta reveal">
+        <div class="calc-bridge-hex"></div>
+        <div class="calc-bridge-inner">
+          <p class="calc-bridge-transition">Every facility is different. Let's size this for your operation.</p>
+          <button class="btn btn-primary btn-lg" data-open-modal="estimate-modal">Get Your System Estimate</button>
+          <p class="calc-bridge-sub">We'll turn this into a real system design based on your facility.</p>
         </div>
       </div>
     </div>
@@ -216,7 +239,6 @@
   <section class="section" style="background: var(--color-surface-2);">
     <div class="container container--narrow">
       <div class="reveal" style="margin-bottom: var(--space-10);">
-        <span class="section-eyebrow">Common Questions</span>
         <h2 class="section-heading" style="color: var(--color-navy);">Clearing Up the Misconceptions</h2>
       </div>
       <div class="reveal">
@@ -280,12 +302,104 @@
   </section>
 </main>
 
+<!-- SYSTEM ESTIMATE MODAL -->
+<div id="estimate-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="estimate-modal-title" hidden>
+  <div class="modal-card modal-card--estimate">
+    <button class="modal-close" data-close-modal aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-header">
+      <h2 class="modal-title" id="estimate-modal-title">Get a hydrogen system sized for your operation</h2>
+      <p class="modal-sub">We'll use this to size a system for your facility.</p>
+      <p class="modal-sub modal-sub--muted">We'll size your system first, then walk through costs if it makes sense.</p>
+    </div>
+    <div class="estimate-prefill" id="estimate-prefill" hidden>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      <div class="estimate-prefill-content">
+        <span class="estimate-prefill-label">Your starting point</span>
+        <span id="estimate-prefill-text">Power Pack 200 · 8 hours/day · 1 unit</span>
+      </div>
+    </div>
+    <form id="estimate-form" class="modal-form" novalidate>
+      <div class="modal-form-row">
+        <div class="modal-field">
+          <label class="modal-label" for="est-name">Name <span aria-hidden="true">*</span></label>
+          <input class="modal-input" type="text" id="est-name" name="name" placeholder="Your name" autocomplete="name" required />
+        </div>
+        <div class="modal-field">
+          <label class="modal-label" for="est-company">Company</label>
+          <input class="modal-input" type="text" id="est-company" name="company" placeholder="Your company" autocomplete="organization" />
+        </div>
+      </div>
+      <div class="modal-form-row">
+        <div class="modal-field">
+          <label class="modal-label" for="est-email">Email <span aria-hidden="true">*</span></label>
+          <input class="modal-input" type="email" id="est-email" name="email" placeholder="you@company.com" autocomplete="email" required />
+        </div>
+        <div class="modal-field">
+          <label class="modal-label" for="est-phone">Phone</label>
+          <input class="modal-input" type="tel" id="est-phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel" />
+        </div>
+      </div>
+      <div class="modal-field">
+        <label class="modal-label" for="est-industry">Industry</label>
+        <select class="modal-input calc-select" id="est-industry" name="industry">
+          <option value="">Select your industry</option>
+          <option value="dairy">Dairy &amp; Agriculture</option>
+          <option value="winery">Wineries &amp; Vineyards</option>
+          <option value="food">Food Processing</option>
+          <option value="fleet">Fleet &amp; Transportation</option>
+          <option value="water">Water Treatment</option>
+          <option value="municipal">Municipal</option>
+          <option value="industrial">General Industrial</option>
+        </select>
+      </div>
+      <div class="modal-field">
+        <label class="modal-label">What's your primary goal?</label>
+        <div class="estimate-goals">
+          <label class="estimate-goal-option">
+            <input type="radio" name="goal" value="lower-costs" />
+            <span>Lower energy costs</span>
+          </label>
+          <label class="estimate-goal-option">
+            <input type="radio" name="goal" value="waste-to-energy" />
+            <span>Turn waste into energy</span>
+          </label>
+          <label class="estimate-goal-option">
+            <input type="radio" name="goal" value="backup-power" />
+            <span>Add backup power</span>
+          </label>
+          <label class="estimate-goal-option">
+            <input type="radio" name="goal" value="fuel-vehicles" />
+            <span>Fuel vehicles or equipment</span>
+          </label>
+        </div>
+      </div>
+      <div class="modal-field">
+        <label class="modal-label" for="est-notes">Anything else we should know?</label>
+        <textarea class="modal-textarea" id="est-notes" name="notes" rows="2" placeholder="Tell us about your operation, energy needs, or questions..."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary btn-lg modal-submit">Get My System Estimate</button>
+      </div>
+      <div id="estimate-success" class="modal-success" hidden>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#39d353" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <div>
+          <p><strong>You're all set.</strong></p>
+          <p>We're reviewing your operation now. You'll hear from the team designing these systems within one business day.</p>
+          <p style="margin-top: var(--space-2); color: var(--color-text-muted); font-size: var(--text-xs);">No generic sales calls, just a real conversation about how this could work for your facility.</p>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
         <a href="./index.html" class="nav-logo" style="margin-bottom: var(--space-4);">
-          <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none">
+          <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
             <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#0d1b2e" stroke="#39d353" stroke-width="2"/>
             <text text-anchor="middle" font-family="sans-serif" font-weight="900" fill="#39d353"><tspan x="20" y="23" font-size="14">H</tspan><tspan dy="3" font-size="9">2</tspan></text>
           </svg>
@@ -305,11 +419,11 @@
       <div>
         <h4 class="footer-col-title">Industries</h4>
         <ul class="footer-links" role="list">
-          <li><a href="./contact.html">Food Processing</a></li>
-          <li><a href="./contact.html">Wineries &amp; Vineyards</a></li>
-          <li><a href="./contact.html">Water Treatment</a></li>
-          <li><a href="./contact.html">Municipal</a></li>
-          <li><a href="./contact.html">Transportation</a></li>
+          <li><a href="./industries.html#food">Food Processing</a></li>
+          <li><a href="./industries.html#winery">Wineries &amp; Vineyards</a></li>
+          <li><a href="./industries.html#water">Water Treatment</a></li>
+          <li><a href="./industries.html#municipal">Municipal</a></li>
+          <li><a href="./industries.html#fleet">Transportation</a></li>
         </ul>
       </div>
       <div>
@@ -449,6 +563,140 @@ document.querySelectorAll('.faq-question').forEach(btn => {
     }
   });
 });
+
+// Industry context messages
+const INDUSTRY_CONTEXT = {
+  dairy: 'Supports daily milking operations, refrigeration, and backup energy for your facility.',
+  winery: 'Powers crush and fermentation equipment, cold storage, and facility operations.',
+  food: 'Covers energy-intensive processing loads, cold storage, and packaging line power.',
+  fleet: 'Fuels vehicles and equipment across a full shift with zero emissions.',
+  water: 'Runs pumps, treatment systems, and facility power around the clock.',
+  municipal: 'Provides reliable backup power, fleet fueling, and facility energy for public operations.',
+  industrial: 'Supports heavy equipment, facility power, and continuous manufacturing processes.'
+};
+
+// Industry select
+document.getElementById('industry-select').addEventListener('change', function() {
+  const ctx = document.getElementById('industry-context');
+  const val = this.value;
+  if (val && INDUSTRY_CONTEXT[val]) {
+    ctx.textContent = INDUSTRY_CONTEXT[val];
+    ctx.style.display = 'block';
+  } else {
+    ctx.textContent = '';
+    ctx.style.display = 'none';
+  }
+});
+
+// Read industry from URL param (e.g., from industries page link)
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const industryParam = params.get('industry');
+  if (industryParam) {
+    const industrySelect = document.getElementById('industry-select');
+    if (industrySelect) {
+      industrySelect.value = industryParam;
+      industrySelect.dispatchEvent(new Event('change'));
+    }
+    // Show context bar
+    const INDUSTRY_NAMES = {
+      dairy: 'Dairy & Agriculture',
+      winery: 'Wineries & Vineyards',
+      food: 'Food Processing',
+      fleet: 'Fleet & Transportation',
+      water: 'Water Treatment',
+      municipal: 'Municipal',
+      industrial: 'General Industrial'
+    };
+    const contextBar = document.getElementById('calc-context-bar');
+    const contextText = document.getElementById('calc-context-text');
+    if (contextBar && contextText && INDUSTRY_NAMES[industryParam]) {
+      contextText.textContent = 'Showing results for ' + INDUSTRY_NAMES[industryParam];
+      contextBar.hidden = false;
+    }
+  }
+})();
+
+// Pulse animation on h2-output when values change
+const h2OutputEl = document.getElementById('h2-output');
+const origUpdateCalc = updateCalc;
+// Wrap updateCalc to add pulse
+(function() {
+  const _origUpdate = window.updateCalc || updateCalc;
+  // Override is not needed since updateCalc references are direct
+})();
+// Add pulse via MutationObserver on the h2-output
+if (h2OutputEl) {
+  let lastVal = h2OutputEl.textContent;
+  const pulseCheck = setInterval(() => {
+    if (h2OutputEl.textContent !== lastVal) {
+      lastVal = h2OutputEl.textContent;
+      h2OutputEl.classList.remove('calc-pulse');
+      void h2OutputEl.offsetWidth;
+      h2OutputEl.classList.add('calc-pulse');
+    }
+  }, 100);
+}
+
+// Estimate modal logic
+(function() {
+  const overlay = document.getElementById('estimate-modal');
+  if (!overlay) return;
+
+  function openModal() {
+    overlay.hidden = false;
+    requestAnimationFrame(() => overlay.classList.add('modal-open'));
+    document.body.style.overflow = 'hidden';
+    overlay.querySelector('.modal-close').focus();
+
+    // Pre-fill from calculator
+    const system = document.getElementById('system-select');
+    const hours = document.getElementById('hours-slider');
+    const industry = document.getElementById('industry-select');
+    const prefill = document.getElementById('estimate-prefill');
+    const prefillText = document.getElementById('estimate-prefill-text');
+
+    if (system && hours) {
+      const sysName = system.options[system.selectedIndex].text.split(' — ')[0];
+      prefillText.textContent = sysName + ' · ' + hours.value + ' hours/day · ' + selectedUnits + (selectedUnits === 1 ? ' unit' : ' units');
+      prefill.hidden = false;
+    }
+
+    // Pre-fill industry if selected in calculator
+    if (industry && industry.value) {
+      const estIndustry = document.getElementById('est-industry');
+      if (estIndustry) estIndustry.value = industry.value;
+    }
+  }
+
+  function closeModal() {
+    overlay.classList.remove('modal-open');
+    document.body.style.overflow = '';
+    setTimeout(() => { overlay.hidden = true; }, 200);
+  }
+
+  document.querySelectorAll('[data-open-modal="estimate-modal"]').forEach(btn => {
+    btn.addEventListener('click', openModal);
+  });
+  overlay.querySelectorAll('[data-close-modal]').forEach(btn => {
+    btn.addEventListener('click', closeModal);
+  });
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !overlay.hidden) closeModal(); });
+
+  // Form submit
+  document.getElementById('estimate-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.modal-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    setTimeout(() => {
+      this.querySelectorAll('.modal-form-row, .modal-field, .modal-actions, .estimate-goals').forEach(el => el.style.display = 'none');
+      document.getElementById('estimate-prefill').hidden = true;
+      document.getElementById('estimate-success').hidden = false;
+    }, 800);
+  });
+})();
 </script>
 <script data-pplx-inline-edit>
 (function(){

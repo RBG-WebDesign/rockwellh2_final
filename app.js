@@ -81,45 +81,127 @@ const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileClose = document.getElementById('mobile-close');
 if (hamburger && mobileMenu && mobileClose) {
-  hamburger.addEventListener('click', () => {
+  const FOCUSABLE = 'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])';
+
+  function openMobileMenu() {
     mobileMenu.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
-  });
-  mobileClose.addEventListener('click', () => {
+    mobileClose.focus();
+  }
+
+  function closeMobileMenu() {
     mobileMenu.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
-  });
-  // Close on outside click
+    hamburger.focus();
+  }
+
+  hamburger.addEventListener('click', openMobileMenu);
+  mobileClose.addEventListener('click', closeMobileMenu);
+
+  // Focus trap + Escape
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
-      mobileMenu.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+    if (!mobileMenu.classList.contains('open')) return;
+    if (e.key === 'Escape') { closeMobileMenu(); return; }
+    if (e.key !== 'Tab') return;
+    const focusable = Array.from(mobileMenu.querySelectorAll(FOCUSABLE));
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
     }
   });
 }
 
 // ============================================================
-// NAV DROPDOWN
+// NAV DROPDOWN — mouse + full keyboard support
 // ============================================================
 document.querySelectorAll('.nav-dropdown').forEach(dd => {
-  dd.addEventListener('mouseenter', () => dd.classList.add('open'));
-  dd.addEventListener('mouseleave', () => dd.classList.remove('open'));
-  dd.querySelector('.nav-dropdown-toggle')?.addEventListener('click', () => {
-    dd.classList.toggle('open');
+  const toggle = dd.querySelector('.nav-dropdown-toggle');
+  const items  = Array.from(dd.querySelectorAll('.nav-dropdown-item'));
+
+  function openDD()  { dd.classList.add('open');    toggle && toggle.setAttribute('aria-expanded', 'true');  }
+  function closeDD() { dd.classList.remove('open'); toggle && toggle.setAttribute('aria-expanded', 'false'); }
+
+  dd.addEventListener('mouseenter', openDD);
+  dd.addEventListener('mouseleave', closeDD);
+
+  if (toggle) {
+    toggle.addEventListener('click', () => dd.classList.contains('open') ? closeDD() : openDD());
+
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        dd.classList.contains('open') ? closeDD() : openDD();
+        if (dd.classList.contains('open') && items.length) items[0].focus();
+      }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        openDD();
+        if (items.length) items[0].focus();
+      }
+      if (e.key === 'Escape') { closeDD(); toggle.focus(); }
+    });
+  }
+
+  items.forEach((item, i) => {
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); items[i + 1]?.focus(); }
+      if (e.key === 'ArrowUp')   { e.preventDefault(); i > 0 ? items[i - 1].focus() : toggle?.focus(); }
+      if (e.key === 'Escape')    { closeDD(); toggle?.focus(); }
+      if (e.key === 'Tab' && !e.shiftKey && i === items.length - 1) closeDD();
+    });
   });
 });
 
 // ============================================================
 // SCROLL REVEAL
 // ============================================================
-function activateReveals() {
-  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-    el.classList.add('visible');
-  });
+const revealEls = document.querySelectorAll('.reveal, .reveal-slide-up, .reveal-scale, .reveal-stagger-children');
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('visible'));
 }
-// Fire immediately on DOMContentLoaded, then again on scroll for any missed
-activateReveals();
-document.addEventListener('scroll', activateReveals, { passive: true, once: true });
+
+// ============================================================
+// HERO PARALLAX
+// ============================================================
+(function() {
+  const heroVideo = document.querySelector('.hero-video');
+  const heroLeft  = document.querySelector('.hero-left');
+  if (!heroVideo || !heroLeft) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  heroVideo.style.willChange = 'transform';
+  heroLeft.style.willChange  = 'transform';
+
+  const hero = document.querySelector('.hero');
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        const heroH   = hero ? hero.offsetHeight : window.innerHeight;
+        if (scrollY < heroH) {
+          heroVideo.style.transform = `translateY(${scrollY * 0.4}px)`;
+          heroLeft.style.transform  = `translateY(${scrollY * 0.12}px)`;
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
