@@ -697,7 +697,8 @@
    ============================================================ */
 .hero {
   position: relative;
-  min-height: calc(100vh - 72px);
+  height: 100vh;
+  min-height: 0;
   display: flex;
   align-items: stretch;
   overflow: hidden;
@@ -929,7 +930,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    min-height: calc(100vh - 72px);
+    min-height: 100vh;
     padding-block: clamp(2rem, 5vh, 4rem);
   }
 
@@ -2092,7 +2093,7 @@ input[type='range']::-moz-range-thumb {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: clamp(var(--space-8), 4vw, var(--space-16));
   margin-bottom: var(--space-12);
 }
@@ -2811,6 +2812,102 @@ input[type='range']::-moz-range-thumb {
 
 
 /* ============================================================
+   DESKTOP PHOTO ACCENTS
+   Subtle imagery for sections that are text-only on desktop
+   ============================================================ */
+
+/* ==========================================================
+   SECTION BACKGROUND IMAGES (desktop only)
+   Subtle photographic texture blended into section backgrounds
+   via ::after pseudo-elements for full layering control.
+   ========================================================== */
+
+/* --- Modular section: hydrogen.png (dark navy base) --- */
+.modular-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.modular-section::after {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: url("./rockwellfacility.png") center 60% / cover no-repeat;
+  opacity: 0.18;
+  mix-blend-mode: lighten;
+  filter: blur(6px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.modular-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Products section: hydro-forklift.png (light base) --- */
+.products-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.products-section::after {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background:
+    linear-gradient(
+      to bottom,
+      var(--color-bg) 0%,
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0) 80%,
+      var(--color-bg) 100%
+    ),
+    url("./hydro-forklift.png") center / cover no-repeat;
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+  filter: blur(6px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.products-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Industries section: i3.jpeg (light surface base) --- */
+.industries-list-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.industries-list-section::after {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background:
+    linear-gradient(
+      to bottom,
+      var(--color-surface-2) 0%,
+      rgba(255, 255, 255, 0) 15%,
+      rgba(255, 255, 255, 0) 85%,
+      var(--color-surface-2) 100%
+    ),
+    url("./HydrogenForklift.png") center 30% / cover no-repeat;
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+  filter: blur(6px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.industries-list-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
    HERO SPLIT LAYOUT
    ============================================================ */
 .hero-content--split {
@@ -2818,7 +2915,7 @@ input[type='range']::-moz-range-thumb {
   grid-template-columns: 1fr 1fr;
   gap: var(--space-16);
   align-items: center;
-  min-height: calc(100vh - 64px);
+  min-height: 100vh;
   padding-block: var(--space-16);
 }
 
@@ -3793,6 +3890,13 @@ input[type='range']::-moz-range-thumb {
     display: none !important;
   }
 
+  /* Hide section background images on mobile */
+  .modular-section::after,
+  .products-section::after,
+  .industries-list-section::after {
+    display: none;
+  }
+
   /* --- GLOBAL --- */
   body {
     overflow-x: hidden;
@@ -3878,7 +3982,7 @@ input[type='range']::-moz-range-thumb {
   }
 
   .hero-left h1 {
-    font-size: clamp(2.2rem, 9vw, 3.5rem);
+    font-size: clamp(3.1rem, 12.5vw, 4.9rem);
     line-height: 1.05;
     letter-spacing: -0.03em;
     max-width: none;
@@ -3930,7 +4034,7 @@ input[type='range']::-moz-range-thumb {
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
-    padding: clamp(10px, 1.8vh, 16px) 0 clamp(8px, 1.2vh, 12px) !important;
+    padding: clamp(10px, 1.8vh, 16px) 12px clamp(8px, 1.2vh, 12px) !important;
     margin: clamp(14px, 2.5vh, 24px) -20px 0 !important;
     width: calc(100% + 40px);
     border-radius: 0 !important;
@@ -4083,7 +4187,7 @@ input[type='range']::-moz-range-thumb {
 
   /* --- MODULAR SECTION --- */
   .modular-section {
-    padding: 40px 20px;
+    padding: 60px 20px;
   }
 
   .modular-inner {
