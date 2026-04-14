@@ -2297,10 +2297,13 @@ input[type='range']::-moz-range-thumb {
 
 .faq-answer-inner {
   overflow: hidden;
-  padding-bottom: var(--space-5);
   font-size: var(--text-base);
   color: var(--color-text-muted);
   line-height: 1.7;
+}
+
+.faq-item.open .faq-answer-inner {
+  padding-bottom: var(--space-5);
 }
 
 /* ============================================================
@@ -3912,7 +3915,7 @@ input[type='range']::-moz-range-thumb {
 
   /* --- GLOBAL --- */
   body {
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   .container {
