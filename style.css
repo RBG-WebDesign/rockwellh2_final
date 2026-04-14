@@ -447,6 +447,16 @@
   z-index: 200;
 }
 
+/* Invisible bridge — covers the gap between toggle and dropdown so mouseleave doesn't fire */
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown.open .nav-dropdown-menu {
   opacity: 1;
@@ -3182,14 +3192,16 @@ input[type='range']::-moz-range-thumb {
 }
 
 /* ============================================================
-   REVEAL OVERRIDE — disable hide-until-scroll entirely
-   Sections are always visible; no animation risk
+   REVEAL OVERRIDE — mobile only
+   Desktop: animations active. Mobile: always visible.
    ============================================================ */
-.reveal,
-.reveal.visible {
-  opacity: 1 !important;
-  transform: none !important;
-  transition: none !important;
+@media (max-width: 900px) {
+  .reveal,
+  .reveal.visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* ============================================================
