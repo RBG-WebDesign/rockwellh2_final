@@ -1935,6 +1935,37 @@ input[type='range']::-moz-range-thumb {
 }
 
 /* ============================================================
+   CALCULATOR — BRIDGE CTA
+   ============================================================ */
+.calc-bridge-cta {
+  text-align: center;
+  padding: var(--space-12) var(--space-6);
+  margin-top: var(--space-10);
+  background: var(--color-surface-2);
+  border-radius: var(--radius-2xl);
+}
+
+.calc-bridge-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.calc-bridge-transition {
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--color-text);
+  max-width: 40ch;
+}
+
+.calc-bridge-sub {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  max-width: 44ch;
+}
+
+/* ============================================================
    CONTACT PAGE
    ============================================================ */
 .contact-layout {
