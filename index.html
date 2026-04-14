@@ -100,6 +100,7 @@
         <source src="./hero.mp4" type="video/mp4" />
       </video>
       <div class="hero-bg-overlay"></div>
+      <div class="hero-hex-pattern" aria-hidden="true"></div>
     </div>
     <div class="hero-content">
       <div class="hero-left">
@@ -107,7 +108,7 @@
         <p class="hero-sub">Complete on-site hydrogen systems powered by solar or biomass. Produce, store, and use your own clean energy on your property. No grid required.</p>
         <div class="hero-actions">
           <a href="#how-it-works" class="btn btn-primary btn-lg">See How It Works</a>
-          <a href="./contact.html" class="btn btn-white btn-lg">Talk to Our Team</a>
+          <a href="./contact.html" class="btn btn-outline btn-lg hero-cta-secondary">Talk to Our Team</a>
         </div>
         <div class="hero-trust-row">
           <span class="hero-trust-item">
@@ -136,8 +137,8 @@
             <span class="hero-stat-label">H&#8322; / Day</span>
           </div>
           <div>
-            <span class="hero-stat-value">Zero</span>
-            <span class="hero-stat-label">Emissions Output</span>
+            <span class="hero-stat-value">0%</span>
+            <span class="hero-stat-label">Grid Reliance</span>
           </div>
           <div>
             <span class="hero-stat-value">2</span>
@@ -194,9 +195,133 @@
         </div>
       </div>
 
+      <!-- Convergence diagram -->
+      <div class="pathways-diagram desktop-only reveal">
+        <svg viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <marker id="arrowSolar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#f59e0b"/>
+            </marker>
+            <marker id="arrowBio" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#65a30d"/>
+            </marker>
+            <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#39d353"/>
+            </marker>
+            <linearGradient id="solarFill" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#fffbeb"/>
+              <stop offset="100%" stop-color="#fef3c7"/>
+            </linearGradient>
+            <linearGradient id="bioFill" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#f7fee7"/>
+              <stop offset="100%" stop-color="#ecfccb"/>
+            </linearGradient>
+            <linearGradient id="navyFill" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#172a44"/>
+              <stop offset="100%" stop-color="#0d1b2e"/>
+            </linearGradient>
+            <radialGradient id="junctionGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#39d353" stop-opacity="0.35"/>
+              <stop offset="70%" stop-color="#39d353" stop-opacity="0.08"/>
+              <stop offset="100%" stop-color="#39d353" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="softShadow" x="-10%" y="-10%" width="120%" height="130%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0d1b2e" flood-opacity="0.08"/>
+            </filter>
+          </defs>
+
+          <!-- SHARED INFRASTRUCTURE label -->
+          <text x="820" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#39d353" letter-spacing="3">SHARED INFRASTRUCTURE</text>
+          <line x1="660" y1="56" x2="760" y2="56" stroke="#39d353" stroke-width="1" opacity="0.3"/>
+          <line x1="880" y1="56" x2="980" y2="56" stroke="#39d353" stroke-width="1" opacity="0.3"/>
+
+          <!-- Solar branch (top) -->
+          <g filter="url(#softShadow)">
+            <rect x="30" y="50" width="200" height="76" rx="14" fill="url(#solarFill)" stroke="#f59e0b" stroke-width="1"/>
+          </g>
+          <g transform="translate(52 78)" stroke="#b45309" stroke-width="1.6" stroke-linecap="round" fill="none">
+            <circle cx="10" cy="10" r="5" fill="#fbbf24" fill-opacity="0.4"/>
+            <line x1="10" y1="0" x2="10" y2="3"/>
+            <line x1="10" y1="17" x2="10" y2="20"/>
+            <line x1="0" y1="10" x2="3" y2="10"/>
+            <line x1="17" y1="10" x2="20" y2="10"/>
+            <line x1="3" y1="3" x2="5" y2="5"/>
+            <line x1="15" y1="15" x2="17" y2="17"/>
+            <line x1="3" y1="17" x2="5" y2="15"/>
+            <line x1="15" y1="5" x2="17" y2="3"/>
+          </g>
+          <text x="96" y="84" font-family="Cabinet Grotesk, sans-serif" font-size="15" font-weight="800" fill="#78350f" letter-spacing="-0.01em">Solar / Wind</text>
+          <text x="96" y="103" font-family="Satoshi, sans-serif" font-size="12" fill="#b45309">Electricity input</text>
+          <line x1="234" y1="88" x2="286" y2="88" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowSolar)"/>
+
+          <g filter="url(#softShadow)">
+            <rect x="290" y="50" width="230" height="76" rx="14" fill="#fff" stroke="#f59e0b" stroke-width="1"/>
+          </g>
+          <text x="308" y="82" font-family="Cabinet Grotesk, sans-serif" font-size="13" font-weight="800" fill="#78350f" letter-spacing="0.04em">ELECTROLYSIS</text>
+          <text x="308" y="102" font-family="Satoshi, sans-serif" font-size="12" fill="#b45309">Power Pack 200 / 500</text>
+          <path d="M524 88 C 585 88 600 140 620 140" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Biomass branch (bottom) -->
+          <g filter="url(#softShadow)">
+            <rect x="30" y="200" width="200" height="76" rx="14" fill="url(#bioFill)" stroke="#65a30d" stroke-width="1"/>
+          </g>
+          <g transform="translate(50 218)" stroke="#3f6212" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <path d="M12 40 C 4 32 4 16 12 8 C 20 16 20 32 12 40 Z" fill="#84cc16" fill-opacity="0.35"/>
+            <path d="M12 40 L12 16"/>
+          </g>
+          <text x="96" y="234" font-family="Cabinet Grotesk, sans-serif" font-size="15" font-weight="800" fill="#3f6212" letter-spacing="-0.01em">Organic Waste</text>
+          <text x="96" y="253" font-family="Satoshi, sans-serif" font-size="12" fill="#4d7c0f">Crop / manure / food</text>
+          <line x1="234" y1="238" x2="286" y2="238" stroke="#65a30d" stroke-width="2" marker-end="url(#arrowBio)"/>
+
+          <g filter="url(#softShadow)">
+            <rect x="290" y="200" width="230" height="76" rx="14" fill="#fff" stroke="#65a30d" stroke-width="1"/>
+          </g>
+          <text x="308" y="232" font-family="Cabinet Grotesk, sans-serif" font-size="13" font-weight="800" fill="#3f6212" letter-spacing="0.04em">THERMOLYSIS</text>
+          <text x="308" y="252" font-family="Satoshi, sans-serif" font-size="12" fill="#4d7c0f">Power Pack 200 + Biochar</text>
+          <path d="M524 238 C 585 238 600 140 620 140" fill="none" stroke="#65a30d" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Junction: glow + node -->
+          <circle cx="620" cy="140" r="42" fill="url(#junctionGlow)"/>
+          <circle cx="620" cy="140" r="14" fill="#fff" stroke="#39d353" stroke-width="2"/>
+          <circle cx="620" cy="140" r="5" fill="#39d353"/>
+
+          <!-- Shared spine to storage -->
+          <line x1="634" y1="140" x2="714" y2="140" stroke="#39d353" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+
+          <!-- Storage node -->
+          <g filter="url(#softShadow)">
+            <rect x="720" y="100" width="220" height="80" rx="14" fill="url(#navyFill)" stroke="#39d353" stroke-width="1"/>
+          </g>
+          <g transform="translate(740 122)" stroke="#39d353" stroke-width="1.6" stroke-linecap="round" fill="none">
+            <rect x="0" y="0" width="24" height="36" rx="4"/>
+            <line x1="0" y1="9" x2="24" y2="9"/>
+            <line x1="12" y1="14" x2="12" y2="32"/>
+            <line x1="6" y1="28" x2="18" y2="28" stroke-width="1" opacity="0.5"/>
+          </g>
+          <text x="776" y="134" font-family="Cabinet Grotesk, sans-serif" font-size="14" font-weight="800" fill="#fff" letter-spacing="0.04em">STORAGE</text>
+          <text x="776" y="154" font-family="Satoshi, sans-serif" font-size="12" fill="#86efac">300 kg @ 350 bar</text>
+
+          <line x1="940" y1="140" x2="970" y2="140" stroke="#39d353" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+
+          <!-- Output node -->
+          <g filter="url(#softShadow)">
+            <rect x="976" y="100" width="200" height="80" rx="14" fill="url(#navyFill)" stroke="#39d353" stroke-width="1"/>
+          </g>
+          <g transform="translate(996 121)" fill="#39d353" stroke="#39d353" stroke-width="1.4" stroke-linejoin="round">
+            <path d="M12 0 L0 22 L9 22 L5 38 L22 14 L13 14 L17 0 Z" fill-opacity="0.25"/>
+          </g>
+          <text x="1028" y="134" font-family="Cabinet Grotesk, sans-serif" font-size="14" font-weight="800" fill="#fff" letter-spacing="0.04em">FUEL CELL</text>
+          <text x="1028" y="154" font-family="Satoshi, sans-serif" font-size="12" fill="#86efac">OnDemand 60 / 300</text>
+        </svg>
+      </div>
+
       <div class="pathways-grid desktop-only">
         <!-- Solar -->
-        <div class="pathway-col reveal reveal-delay-1">
+        <div class="pathway-col pathway-col--solar reveal reveal-delay-1">
+          <div class="pathway-best-for-chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>
+            For facilities with rooftop or land area
+          </div>
           <div class="pathway-label">Pathway 01</div>
           <h3 class="pathway-name">Solar to Hydrogen</h3>
           <div class="pathway-flow">
@@ -204,30 +329,28 @@
               <span class="flow-step-label">Input</span>
               <span class="flow-step-value">Solar, wind, or grid electricity</span>
             </div>
-            <div class="pathway-flow-arrow">&#8595;</div>
             <div class="pathway-flow-step pathway-flow-step--product">
               <span class="flow-step-label">Electrolysis</span>
-              <span class="flow-step-value">Power Pack 200 — 200 kW / 90 kg H&#8322; per day<br>Power Pack 500 — 500 kW / 225 kg H&#8322; per day</span>
+              <div class="flow-spec-list">
+                <div class="flow-spec"><span class="flow-spec-name">Power Pack 200</span><span class="flow-spec-value">200 kW · 90 kg H&#8322;/day</span></div>
+                <div class="flow-spec"><span class="flow-spec-name">Power Pack 500</span><span class="flow-spec-value">500 kW · 225 kg H&#8322;/day</span></div>
+              </div>
             </div>
-            <div class="pathway-flow-arrow">&#8595;</div>
             <div class="pathway-flow-step pathway-flow-step--shared">
               <span class="flow-step-label">Storage</span>
-              <span class="flow-step-value">Power Bank — 300 kg @ 350 bar</span>
+              <div class="flow-spec"><span class="flow-spec-name">Power Bank</span><span class="flow-spec-value">300 kg @ 350 bar</span></div>
             </div>
-            <div class="pathway-flow-arrow">&#8595;</div>
             <div class="pathway-flow-step pathway-flow-step--shared">
               <span class="flow-step-label">Output</span>
-              <span class="flow-step-value">Power OnDemand 60 or 300 fuel cell</span>
+              <div class="flow-spec"><span class="flow-spec-name">Power OnDemand</span><span class="flow-spec-value">60 or 300 fuel cell</span></div>
             </div>
           </div>
-          <div class="pathway-best-for">
-            <span class="pathway-best-for-label">Best for</span>
-            Wineries, water treatment, facilities with rooftop or land area
+          <div class="pathway-cta-row">
+            <a href="./solar.html" class="btn btn-primary pathway-cta-primary">Explore Solar Pathway &#8594;</a>
+            <a href="./Rockwell_H2_Solar_Brochure.pdf" class="pathway-download" download>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12l-4-4h2.5V3h3v5H12L8 12zm-5 2h10v-1.5H3V14z"/></svg>Brochure (PDF)
+            </a>
           </div>
-          <a href="./solar.html" class="pathway-link">Solar pathway details &#8594;</a>
-          <a href="./Rockwell_H2_Solar_Brochure.pdf" class="pathway-download" download>
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12l-4-4h2.5V3h3v5H12L8 12zm-5 2h10v-1.5H3V14z"/></svg>Download Solar Brochure
-          </a>
         </div>
 
         <!-- Divider -->
@@ -236,38 +359,40 @@
         </div>
 
         <!-- Biomass -->
-        <div class="pathway-col reveal reveal-delay-2">
+        <div class="pathway-col pathway-col--biomass reveal reveal-delay-2">
+          <div class="pathway-best-for-chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 22V12M12 12c0 0-4-2-6-6 3 0 6 2 6 6zM12 12c0 0 4-2 6-6-3 0-6 2-6 6z"/></svg>
+            For facilities with organic waste streams
+          </div>
           <div class="pathway-label">Pathway 02</div>
           <h3 class="pathway-name">Biomass to Hydrogen</h3>
           <div class="pathway-flow">
             <div class="pathway-flow-step">
               <span class="flow-step-label">Input</span>
-              <span class="flow-step-value">Organic waste: crop residue, manure, food processing byproducts</span>
+              <span class="flow-step-value">Crop residue, manure, food processing byproducts</span>
             </div>
-            <div class="pathway-flow-arrow">&#8595;</div>
             <div class="pathway-flow-step pathway-flow-step--product">
               <span class="flow-step-label">Thermolysis</span>
-              <span class="flow-step-value">Power Pack 200 — 90 kg H&#8322; per day<br><span class="flow-byproduct">+ Biochar fertilizer as a second revenue stream</span></span>
+              <div class="flow-spec-list">
+                <div class="flow-spec"><span class="flow-spec-name">Power Pack 200</span><span class="flow-spec-value">90 kg H&#8322;/day</span></div>
+                <div class="flow-spec flow-spec--bonus"><span class="flow-spec-name">+ Biochar fertilizer</span><span class="flow-spec-value">Second revenue stream</span></div>
+              </div>
             </div>
-            <div class="pathway-flow-arrow">&#8595;</div>
             <div class="pathway-flow-step pathway-flow-step--shared">
               <span class="flow-step-label">Storage</span>
-              <span class="flow-step-value">Power Bank — 300 kg @ 350 bar</span>
+              <div class="flow-spec"><span class="flow-spec-name">Power Bank</span><span class="flow-spec-value">300 kg @ 350 bar</span></div>
             </div>
-            <div class="pathway-flow-arrow">&#8595;</div>
             <div class="pathway-flow-step pathway-flow-step--shared">
               <span class="flow-step-label">Output</span>
-              <span class="flow-step-value">Power OnDemand 60 or 300 fuel cell</span>
+              <div class="flow-spec"><span class="flow-spec-name">Power OnDemand</span><span class="flow-spec-value">60 or 300 fuel cell</span></div>
             </div>
           </div>
-          <div class="pathway-best-for">
-            <span class="pathway-best-for-label">Best for</span>
-            Dairies, food processors, cities with organic waste streams
+          <div class="pathway-cta-row">
+            <a href="./biomass.html" class="btn btn-primary pathway-cta-primary">Explore Biomass Pathway &#8594;</a>
+            <a href="./Rockwell_H2_Biomass_Brochure.pdf" class="pathway-download" download>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12l-4-4h2.5V3h3v5H12L8 12zm-5 2h10v-1.5H3V14z"/></svg>Brochure (PDF)
+            </a>
           </div>
-          <a href="./biomass.html" class="pathway-link">Biomass pathway details &#8594;</a>
-          <a href="./Rockwell_H2_Biomass_Brochure.pdf" class="pathway-download" download>
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12l-4-4h2.5V3h3v5H12L8 12zm-5 2h10v-1.5H3V14z"/></svg>Download Biomass Brochure
-          </a>
         </div>
       </div>
         <!-- MOBILE: Pathway cards -->

@@ -734,26 +734,34 @@
   width: calc(100% + 8px);
   height: calc(100% + 8px);
   object-fit: cover;
-  filter: blur(2px);
-  opacity: 0.45;
+  filter: blur(1px) saturate(1.1);
+  opacity: 0.7;
 }
 
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
   background:
+    linear-gradient(105deg,
+      rgba(13, 27, 46, 0.92) 0%,
+      rgba(13, 27, 46, 0.78) 38%,
+      rgba(13, 27, 46, 0.35) 70%,
+      rgba(13, 27, 46, 0.15) 100%),
     linear-gradient(to bottom,
-      rgba(13, 27, 0, 0) 0%,
-      #1a3d59 100%);
+      rgba(13, 27, 46, 0) 55%,
+      rgba(13, 27, 46, 0.85) 100%);
 }
 
-/* Animated hex grid background */
+/* Hex grid graphic device — anchored to the right where the imagery shows through */
 .hero-hex-pattern {
   position: absolute;
   inset: 0;
-  opacity: 0.12;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='92' viewBox='0 0 80 92'%3E%3Cpath d='M40 4 L72 22 L72 58 L40 76 L8 58 L8 22 Z' fill='none' stroke='%2339d353' stroke-width='1.5'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='92' viewBox='0 0 80 92'%3E%3Cpath d='M40 4 L72 22 L72 58 L40 76 L8 58 L8 22 Z' fill='none' stroke='%2339d353' stroke-width='1.25'/%3E%3C/svg%3E");
   background-size: 80px 92px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 88% 35%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 80%);
+          mask-image: radial-gradient(ellipse 60% 70% at 88% 35%, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 80%);
 }
 
 .hero-content {
@@ -845,22 +853,37 @@
 .hero-trust-item {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.55);
-  font-weight: 500;
+  gap: 8px;
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
   letter-spacing: 0.01em;
 }
 
 .hero-trust-item svg {
-  color: #39d353;
+  color: var(--color-accent);
   flex-shrink: 0;
+  width: 16px;
+  height: 16px;
 }
 
 .hero-trust-sep {
   width: 1px;
-  height: 12px;
-  background: rgba(255, 255, 255, 0.15);
+  height: 14px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Outline CTA tuned for hero on dark video */
+.hero-cta-secondary {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  color: #fff;
+}
+
+.hero-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+  color: #fff;
 }
 
 .hero-stats {
@@ -2400,6 +2423,24 @@ input[type='range']::-moz-range-thumb {
   margin-bottom: 0;
 }
 
+.pathways-diagram {
+  margin: 0 0 var(--space-10);
+  padding: var(--space-8) var(--space-8) var(--space-6);
+  background:
+    radial-gradient(circle at 50% 100%, rgba(57, 211, 83, 0.04), transparent 60%),
+    var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl, 20px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.pathways-diagram svg {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  display: block;
+}
+
 .pathways-grid {
   display: grid;
   grid-template-columns: 1fr 2px 1fr;
@@ -2408,10 +2449,44 @@ input[type='range']::-moz-range-thumb {
 
 .pathway-col {
   padding: var(--space-8) var(--space-8) var(--space-8) 0;
+  --pathway-accent: var(--color-accent);
+  --pathway-accent-bg: rgba(57, 211, 83, 0.08);
+  --pathway-accent-border: rgba(57, 211, 83, 0.25);
 }
 
 .pathway-col:last-child {
   padding: var(--space-8) 0 var(--space-8) var(--space-8);
+}
+
+.pathway-col--solar {
+  --pathway-accent: #b45309;
+  --pathway-accent-bg: #fef3c7;
+  --pathway-accent-border: rgba(245, 158, 11, 0.4);
+}
+
+.pathway-col--biomass {
+  --pathway-accent: #3f6212;
+  --pathway-accent-bg: #ecfccb;
+  --pathway-accent-border: rgba(101, 163, 13, 0.4);
+}
+
+.pathway-best-for-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--pathway-accent-bg);
+  border: 1px solid var(--pathway-accent-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--pathway-accent);
+  letter-spacing: 0.01em;
+  margin-bottom: var(--space-5);
+}
+
+.pathway-best-for-chip svg {
+  flex-shrink: 0;
 }
 
 .pathway-divider {
@@ -2456,6 +2531,26 @@ input[type='range']::-moz-range-thumb {
   line-height: 1.1;
 }
 
+.pathway-col--solar .pathway-label,
+.pathway-col--solar .flow-step-label {
+  color: #b45309;
+}
+
+.pathway-col--biomass .pathway-label,
+.pathway-col--biomass .flow-step-label {
+  color: #3f6212;
+}
+
+.pathway-col--solar .pathway-flow-step--product {
+  border-left-color: #f59e0b;
+  background: #fffbeb;
+}
+
+.pathway-col--biomass .pathway-flow-step--product {
+  border-left-color: #65a30d;
+  background: #f7fee7;
+}
+
 .pathway-flow {
   display: flex;
   flex-direction: column;
@@ -2496,6 +2591,43 @@ input[type='range']::-moz-range-thumb {
   font-size: var(--text-sm);
   color: var(--color-text);
   line-height: 1.5;
+}
+
+.flow-spec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.flow-spec {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.flow-spec-name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.flow-spec-value {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.01em;
+}
+
+.flow-spec--bonus .flow-spec-name {
+  color: var(--color-accent);
+}
+
+.flow-spec--bonus .flow-spec-value {
+  color: var(--color-accent);
+  opacity: 0.8;
 }
 
 .flow-byproduct {
@@ -2544,6 +2676,42 @@ input[type='range']::-moz-range-thumb {
 
 .pathway-link:hover {
   opacity: 0.7;
+}
+
+.pathway-cta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.pathway-cta-primary {
+  font-weight: 700;
+}
+
+.pathway-col--solar .pathway-cta-primary {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: #78350f;
+}
+
+.pathway-col--solar .pathway-cta-primary:hover {
+  background: #d97706;
+  border-color: #d97706;
+}
+
+.pathway-col--biomass .pathway-cta-primary {
+  background: #65a30d;
+  border-color: #65a30d;
+  color: #fff;
+}
+
+.pathway-col--biomass .pathway-cta-primary:hover {
+  background: #4d7c0f;
+  border-color: #4d7c0f;
 }
 
 .pathway-download {
