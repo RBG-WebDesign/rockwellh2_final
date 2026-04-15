@@ -407,6 +407,17 @@
   color: var(--color-text);
 }
 
+/* Light green pill highlight when dropdown is open or hovered.
+   Higher-specificity selector wins over --scrolled/--over-dark/--over-light. */
+.site-header .nav-dropdown:hover .nav-dropdown-toggle,
+.site-header .nav-dropdown.open .nav-dropdown-toggle {
+  color: #0d1b2e !important;
+  background: #39d353 !important;
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+}
+
 /* Active Solutions toggle — matches link pill style */
 .nav-dropdown-toggle--active {
   color: #0d1b2e !important;
